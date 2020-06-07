@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2B42A8A-505E-4D8F-B872-9295C3FA6516}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CMDBAccess</RootNamespace>
+    <AssemblyName>CMDBAccess</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>CMDBAccess.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CMDBAccess.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\CATO_ALL_APIs\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.5.0-preview1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbCMDataAccess.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbCMDataAccess.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCMDataAccess.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbCMDataAccess.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DbCMDataAccess.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dtproperty.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dt_getpropertiesbyid_Result.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dt_getpropertiesbyid_u_Result.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="tblAddress.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCatoCMProject.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMColumnOrderDetail.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMGroupPackageGridHeader.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMGroupsFormOptionalHeader.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMPackagesFormOptionalHeader.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMProject.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSChangeDetail.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSChangeIndex.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSChangeStatu.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSChangeType.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSContract.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSContractReportingPeriod.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSDiscipline.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSGroup.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSGroupPackage.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSPackage.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSProject.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSProjectReportExclusion.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSReportPeriod.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSTrafficLight.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSUserDefineField.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSValuation.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCMSValuationGroup.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDefaultCMProperty.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPhraseCommentaryData.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProject.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProjectImage.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblReportGeneric.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblXEvent.vb">
+      <DependentUpon>DbCMDataAccess.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="DbCMDataAccess.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbCMDataAccess.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DbCMDataAccess.edmx.diagram">
+      <DependentUpon>DbCMDataAccess.edmx</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DbCMDataAccess.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbCMDataAccess.edmx</DependentUpon>
+      <LastGenOutput>DbCMDataAccess.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="DbCMDataAccess.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbCMDataAccess.edmx</DependentUpon>
+      <LastGenOutput>DbCMDataAccess.vb</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\CATO_ALL_APIs\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.5.0-preview1\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\CATO_ALL_APIs\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.5.0-preview1\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\CATO_ALL_APIs\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\CATO_ALL_APIs\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.5.0-preview1\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\CATO_ALL_APIs\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.5.0-preview1\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+</Project>

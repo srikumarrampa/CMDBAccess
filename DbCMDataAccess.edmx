@@ -1,0 +1,2594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="eclCatoCMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="objectid" Type="int" />
+          <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+          <Property Name="lvalue" Type="image" />
+          <Property Name="version" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'eclCatoCM.dbo.tblAddresses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblAddresses">
+          <Key>
+            <PropertyRef Name="fldAddressID" />
+          </Key>
+          <Property Name="fldAddressID" Type="int" Nullable="false" />
+          <Property Name="fldAddress" Type="ntext" />
+          <Property Name="fldPostCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="fldCountryID" Type="int" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldAddress1" Type="ntext" />
+          <Property Name="fldCity" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldCounty" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldLatitude" Type="float" />
+          <Property Name="fldLongitude" Type="float" />
+        </EntityType>
+        <EntityType Name="tblCatoCMProject">
+          <Key>
+            <PropertyRef Name="fldCatoCMProjectID" />
+          </Key>
+          <Property Name="fldCatoCMProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProjectID" Type="int" />
+          <Property Name="fldVersionID" Type="smallint" />
+          <Property Name="fldRevisionID" Type="smallint" />
+          <Property Name="fldVersionDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRevisionDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldLatestVersion" Type="bit" Nullable="false" />
+          <Property Name="fldLatestRevision" Type="bit" Nullable="false" />
+          <Property Name="fldTotalCost" Type="float" />
+          <Property Name="fldTotalCostRounded" Type="float" />
+          <Property Name="fldProjectFileName" Type="ntext" />
+          <Property Name="fldProjectOffline" Type="bit" Nullable="false" />
+          <Property Name="fldProjectOfflineOwner" Type="int" />
+          <Property Name="fldPermissionRef" Type="smallint" />
+          <Property Name="fldLocked" Type="int" />
+          <Property Name="fldLockedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldStatus" Type="int" Nullable="false" />
+          <Property Name="fldUserID" Type="int" />
+          <Property Name="fldReadOnly" Type="bit" Nullable="false" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldMigrated" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblCMColumnOrderDetails">
+          <Key>
+            <PropertyRef Name="fldCMProjectID" />
+          </Key>
+          <Property Name="fldCMProjectID" Type="int" Nullable="false" />
+          <Property Name="fldColumnsOrder" Type="ntext" />
+          <Property Name="fldColumnsHidden" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblCMGroupPackageGridHeaders">
+          <Key>
+            <PropertyRef Name="fldCMProjectID" />
+          </Key>
+          <Property Name="fldCMProjectID" Type="int" Nullable="false" />
+          <Property Name="fldOption4Installed" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="fldGroupPackageCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldGroupPackageLabel" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldInitialBudget" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldTransfers" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldClientChanges" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDBTitle1" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDBTitle2" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDBTitle3" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDBTitle4" Type="nvarchar" MaxLength="100" />
+          <Property Name="clcCurrentBudget" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldAcceptedTenders" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldOrdersYetToPlace" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldCostVariations" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDETitle1" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDETitle2" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDETitle3" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDETitle4" Type="nvarchar" MaxLength="100" />
+          <Property Name="clcEstimatedFinalCost" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldContingency" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldAnticipatedChanges" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldAdvanceWarnings" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDFTitle1" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDFTitle2" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDFTitle3" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldUDFTitle4" Type="nvarchar" MaxLength="100" />
+          <Property Name="clcPotentialOutturnCost" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldAgreedValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldGrossValueCertified" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldSpendToDate" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldComments" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldClientRef" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRef1" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRef2" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRef3" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tblCMGroupsFormOptionalHeaders">
+          <Key>
+            <PropertyRef Name="fldProductProjectID" />
+          </Key>
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+          <Property Name="fldGrpRef1" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldGrpRef1Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldGrpRef2" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldGrpRef2Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldGrpRef3" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldGrpRef3Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldGrpName1" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldGrpName1Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldGrpName2" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldGrpName2Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldGrpParentCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldGrpParentCodeHidden" Type="bit" Nullable="false" />
+          <Property Name="fldGrpParentLabel" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldGrpParentLabelHidden" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'eclCatoCM.dbo.tblCMLocks' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblCMLocks">
+          <Property Name="fldItemID" Type="int" />
+          <Property Name="fldItemType" Type="int" />
+          <Property Name="fldUserHistoryID" Type="int" />
+          <Property Name="fldProductProjectID" Type="int" />
+        </EntityType>-->
+        <EntityType Name="tblCMPackagesFormOptionalHeaders">
+          <Key>
+            <PropertyRef Name="fldProductProjectID" />
+          </Key>
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+          <Property Name="fldPackRef1" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldPackRef1Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldPackRef2" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldPackRef2Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldPackRef3" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldPackRef3Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldPackName1" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldPackName1Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldPackName2" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldPackName2Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldPackName3" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldPackName3Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldPackName4" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldPackName4Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldPackName5" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fldPackName5Hidden" Type="bit" Nullable="false" />
+          <Property Name="fldPackName6" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldPackName6Hidden" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMProjects">
+          <Key>
+            <PropertyRef Name="fldProductProjectID" />
+          </Key>
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMSChangeDetails">
+          <Key>
+            <PropertyRef Name="fldChangeDetailID" />
+          </Key>
+          <Property Name="fldChangeDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldChangeIndexID" Type="int" />
+          <Property Name="fldChangeTypeID" Type="int" />
+          <Property Name="fldChangeFromID" Type="int" />
+          <Property Name="fldChangeToID" Type="int" />
+          <Property Name="fldChangeDescription" Type="ntext" />
+          <Property Name="fldChangeValue" Type="float" />
+          <Property Name="fldRecordStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldAgreedValue" Type="float" />
+          <Property Name="fldAgreed" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldChangeOrder" Type="float" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+          <Property Name="fldChangeValueA" Type="float" />
+          <Property Name="fldChangeValueB" Type="float" />
+          <Property Name="fldChangeValueFlagA" Type="bit" />
+          <Property Name="fldChangeValueFlagB" Type="bit" />
+          <Property Name="fldComments" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tblCMSChangeIndex">
+          <Key>
+            <PropertyRef Name="fldChangeUniqueID" />
+          </Key>
+          <Property Name="fldChangeUniqueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldGroupPackageID" Type="int" />
+          <Property Name="fldChangeIDinGroupPackage" Type="int" />
+          <Property Name="fldDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldFullChangeTypeString" Type="ntext" />
+          <Property Name="fldDisciplineID" Type="int" />
+          <Property Name="fldStatusID" Type="int" />
+          <Property Name="fldDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldPeriodEnteredID" Type="int" />
+          <Property Name="fldPeriodAuthorisedID" Type="int" />
+          <Property Name="fldAIDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldAINo" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldInfoFrom" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldActionComment" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldSource" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldFullFromString" Type="ntext" />
+          <Property Name="fldFullToString" Type="ntext" />
+          <Property Name="fldFullValueAmount" Type="float" />
+          <Property Name="fldRecordStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldLocked" Type="bit" />
+          <Property Name="fldAdd1Value" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldAdd2Value" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldAdd3Value" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldAdd4Value" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMSChangeStatus">
+          <Key>
+            <PropertyRef Name="fldStatusID" />
+          </Key>
+          <Property Name="fldStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="int" />
+          <Property Name="fldSystemDefaultStatus" Type="bit" />
+          <Property Name="fldStatusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldStatusDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldStatusTrafficLightTypeID" Type="int" />
+          <Property Name="fldRecordStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldTrafficLightColour" Type="nvarchar" MaxLength="6" />
+          <Property Name="fldChangeCommentary" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tblCMSChangeTypes">
+          <Key>
+            <PropertyRef Name="fldChangeTypeID" />
+          </Key>
+          <Property Name="fldChangeTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="int" />
+          <Property Name="fldChangeCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldChangeDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldFromBucketString" Type="nvarchar" MaxLength="20" />
+          <Property Name="fldToBucketString" Type="nvarchar" MaxLength="20" />
+          <Property Name="fldPredefinedYesNo" Type="bit" />
+          <Property Name="fldFullDescription" Type="text" />
+          <Property Name="fldRecordStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldChangeCommentary" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tblCMSContractReportingPeriods">
+          <Key>
+            <PropertyRef Name="fldPeriodID" />
+          </Key>
+          <Property Name="fldPeriodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldGroupPackageID" Type="int" />
+          <Property Name="fldRowOrderID" Type="int" />
+          <Property Name="fldPeriodDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldPlannedPeriodStartDate" Type="datetime" />
+          <Property Name="fldPlannedPeriodCompletionDate" Type="datetime" />
+          <Property Name="fldActualPeriodStartDate" Type="datetime" />
+          <Property Name="fldActualPeriodCompletionDate" Type="datetime" />
+          <Property Name="fldFirstChangeNumber" Type="nvarchar" MaxLength="5" />
+          <Property Name="fldDateofChange" Type="datetime" />
+          <Property Name="fldRecordStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+          <Property Name="fldReportDate" Type="datetime" />
+          <Property Name="fldReportNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="fldContractID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="tblCMSContracts">
+          <Key>
+            <PropertyRef Name="fldContractID" />
+          </Key>
+          <Property Name="fldContractID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="int" />
+          <Property Name="fldContractName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldContractDescription" Type="ntext" />
+          <Property Name="fldRowOrderID" Type="smallint" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldComments" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldClassificationID" Type="smallint" />
+          <Property Name="fldElementClassName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tblCMSDisciplines">
+          <Key>
+            <PropertyRef Name="fldDisciplineID" />
+          </Key>
+          <Property Name="fldDisciplineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldSystemDefaultDiscipline" Type="bit" />
+          <Property Name="fldDisciplineCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldDisciplineDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldGroupPackageID" Type="int" />
+          <Property Name="fldRecordStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMSGroupPackages">
+          <Key>
+            <PropertyRef Name="fldGroupPackageID" />
+          </Key>
+          <Property Name="fldGroupPackageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="int" />
+          <Property Name="fldContractID" Type="int" />
+          <Property Name="fldGroupPackageName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldGroupPackageDescription" Type="ntext" />
+          <Property Name="fldPreDefinedYesNo" Type="bit" />
+          <Property Name="fldInitialBudgetDate" Type="datetime" />
+          <Property Name="fldGrossInterimValuationDate" Type="datetime" />
+          <Property Name="fldContractCommencementDate" Type="datetime" />
+          <Property Name="fldContractCompletionDate" Type="datetime" />
+          <Property Name="fldExtendedContractCompletionDate" Type="datetime" />
+          <Property Name="fldContractBudget" Type="float" />
+          <Property Name="fldContractVAT" Type="float" />
+          <Property Name="fldContractNotes" Type="ntext" />
+          <Property Name="fldPreviousAdvanceWarnings" Type="float" />
+          <Property Name="fldPreviousUnapprovedEstimates" Type="float" />
+          <Property Name="fldPreviousUnapprovedClaims" Type="float" />
+          <Property Name="fldAdd1Label" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldAdd1Type" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldAdd2Label" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldAdd2Type" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldAdd3Label" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldAdd3Type" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldAdd4Label" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldAdd4Type" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldAINUMLabel" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldCurrentReportingPeriodID" Type="int" />
+          <Property Name="fldCurrentValuationGroupID" Type="int" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldActiveReportToPrint" Type="bit" />
+          <Property Name="fldIsTotal" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldPreviousTotal" Type="smallint" />
+        </EntityType>
+        <EntityType Name="tblCMSGroups">
+          <Key>
+            <PropertyRef Name="fldGroupID" />
+          </Key>
+          <Property Name="fldGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldGroupPackageID" Type="int" />
+          <Property Name="fldGroupCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldGroupLabel" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldSequenceNumber" Type="int" />
+          <Property Name="fldClientRef" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldTotalIndicator" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldDeleted" Type="bit" />
+          <Property Name="fldInitialBudget" Type="float" />
+          <Property Name="fldTransfers" Type="float" />
+          <Property Name="fldClientChanges" Type="float" />
+          <Property Name="fldCurrentBudget" Type="float" />
+          <Property Name="fldPreviousBudget" Type="float" />
+          <Property Name="fldAcceptedTenders" Type="float" />
+          <Property Name="fldOrdersYetToPlace" Type="float" />
+          <Property Name="fldCostVariations" Type="float" />
+          <Property Name="fldEstimatedFinalCost" Type="float" />
+          <Property Name="fldPreviousForecast" Type="float" />
+          <Property Name="fldGrossValueCertified" Type="float" />
+          <Property Name="fldContingency" Type="float" />
+          <Property Name="fldAnticipatedChanges" Type="float" />
+          <Property Name="fldAdvanceWarnings" Type="float" />
+          <Property Name="fldDefinedinCatoCP" Type="int" />
+          <Property Name="fldPotentialOutturnCosts" Type="float" />
+          <Property Name="fldAgreedValue" Type="float" />
+          <Property Name="fldPreviousPotentialOutturnCosts" Type="float" />
+          <Property Name="fldPreviousAgreedValue" Type="float" />
+          <Property Name="fldRowOrderId" Type="smallint" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldUnallocatedIndicator" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldRetained" Type="float" />
+          <Property Name="fldWithheld" Type="float" />
+          <Property Name="fldLastChangeOrder" Type="int" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+          <Property Name="fldSpendToDate" Type="float" />
+          <Property Name="fldPreviousGrossCertified" Type="float" />
+          <Property Name="fldPreviousTotalNet" Type="float" />
+          <Property Name="fldUDBudget1" Type="float" />
+          <Property Name="fldUDForecast1" Type="float" />
+          <Property Name="fldUDExpenditure1" Type="float" />
+          <Property Name="fldUDBudget2" Type="float" />
+          <Property Name="fldUDForecast2" Type="float" />
+          <Property Name="fldUDExpenditure2" Type="float" />
+          <Property Name="fldUDBudget3" Type="float" />
+          <Property Name="fldUDForecast3" Type="float" />
+          <Property Name="fldUDExpenditure3" Type="float" />
+          <Property Name="fldUDBudget4" Type="float" />
+          <Property Name="fldUDForecast4" Type="float" />
+          <Property Name="fldUDExpenditure4" Type="float" />
+          <Property Name="fldComments" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldRef1" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRef2" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRef3" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldParentCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldParentLabel" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldName1" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldName2" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldPreviousAcceptedTenders" Type="float" />
+          <Property Name="fldPreviousSpendToDate" Type="float" />
+        </EntityType>
+        <EntityType Name="tblCMSPackages">
+          <Key>
+            <PropertyRef Name="fldPackageID" />
+          </Key>
+          <Property Name="fldPackageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldGroupPackageID" Type="int" />
+          <Property Name="fldGroupID" Type="int" />
+          <Property Name="fldPackageCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldPackageLabel" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldSequenceNumber" Type="int" />
+          <Property Name="fldClientRef" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldTotalIndicator" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldDeleted" Type="bit" />
+          <Property Name="fldInitialBudget" Type="float" />
+          <Property Name="fldInitialBudgetLocked" Type="bit" />
+          <Property Name="fldTransfers" Type="float" />
+          <Property Name="fldClientChanges" Type="float" />
+          <Property Name="fldCurrentBudget" Type="float" />
+          <Property Name="fldPreviousBudget" Type="float" />
+          <Property Name="fldAcceptedTenders" Type="float" />
+          <Property Name="fldOrdersYetToPlace" Type="float" />
+          <Property Name="fldCostVariations" Type="float" />
+          <Property Name="fldEstimatedFinalCost" Type="float" />
+          <Property Name="fldPreviousForecast" Type="float" />
+          <Property Name="fldGrossValueCertified" Type="float" />
+          <Property Name="fldContingency" Type="float" />
+          <Property Name="fldAnticipatedChanges" Type="float" />
+          <Property Name="fldAdvanceWarnings" Type="float" />
+          <Property Name="fldDefinedinCatoCP" Type="int" />
+          <Property Name="fldPotentialOutturnCosts" Type="float" />
+          <Property Name="fldAgreedValue" Type="float" />
+          <Property Name="fldPreviousPotentialOutturnCosts" Type="float" />
+          <Property Name="fldPreviousAgreedValue" Type="float" />
+          <Property Name="fldRowOrderId" Type="smallint" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldRetained" Type="float" />
+          <Property Name="fldWithheld" Type="float" />
+          <Property Name="fldLastChangeOrder" Type="float" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+          <Property Name="fldSpendToDate" Type="float" />
+          <Property Name="fldPreviousGrossCertified" Type="float" />
+          <Property Name="fldPreviousTotalNet" Type="float" />
+          <Property Name="fldUDBudget1" Type="float" />
+          <Property Name="fldUDForecast1" Type="float" />
+          <Property Name="fldUDExpenditure1" Type="float" />
+          <Property Name="fldUDBudget2" Type="float" />
+          <Property Name="fldUDForecast2" Type="float" />
+          <Property Name="fldUDExpenditure2" Type="float" />
+          <Property Name="fldUDBudget3" Type="float" />
+          <Property Name="fldUDForecast3" Type="float" />
+          <Property Name="fldUDExpenditure3" Type="float" />
+          <Property Name="fldUDBudget4" Type="float" />
+          <Property Name="fldUDForecast4" Type="float" />
+          <Property Name="fldUDExpenditure4" Type="float" />
+          <Property Name="fldContractor" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldComments" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldThreshold1" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldThreshold2" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldPackageLead" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldName3" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldName4" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldName5" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRef1" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRef2" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldRef3" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldPreviousAcceptedTenders" Type="float" />
+          <Property Name="fldPreviousSpendToDate" Type="float" />
+          <Property Name="fldName6" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tblCMSProjectReportExclusions">
+          <Key>
+            <PropertyRef Name="fldExclusionID" />
+          </Key>
+          <Property Name="fldExclusionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProjectID" Type="int" />
+          <Property Name="fldOrderinProject" Type="int" />
+          <Property Name="fldExclusionMemo" Type="ntext" />
+          <Property Name="fldRecordStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldSourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCMSProjects">
+          <Key>
+            <PropertyRef Name="fldProjectID" />
+          </Key>
+          <Property Name="fldProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProjectName" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldProjectDescription" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblCMSReportPeriods">
+          <Key>
+            <PropertyRef Name="fldPeriodID" />
+          </Key>
+          <Property Name="fldPeriodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldGroupPackageID" Type="int" />
+          <Property Name="fldCurrentReportingPeriod" Type="int" />
+          <Property Name="fldDateofChange" Type="datetime" />
+          <Property Name="fldSourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCMSTrafficLights">
+          <Key>
+            <PropertyRef Name="fldTrafficLightID" />
+          </Key>
+          <Property Name="fldTrafficLightID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProjectID" Type="int" />
+          <Property Name="fldTypeID" Type="int" />
+          <Property Name="fldDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldQBColorValue" Type="int" />
+          <Property Name="fldSourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCMSUserDefineFields">
+          <Key>
+            <PropertyRef Name="fldUDFieldID" />
+          </Key>
+          <Property Name="fldUDFieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="int" />
+          <Property Name="fldUDBUsed1" Type="bit" />
+          <Property Name="fldUDBTitle1" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDFUsed1" Type="bit" />
+          <Property Name="fldUDFTitle1" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDEUsed1" Type="bit" />
+          <Property Name="fldUDETitle1" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDBUsed2" Type="bit" />
+          <Property Name="fldUDBTitle2" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDFUsed2" Type="bit" />
+          <Property Name="fldUDFTitle2" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDEUsed2" Type="bit" />
+          <Property Name="fldUDETitle2" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDBUsed3" Type="bit" />
+          <Property Name="fldUDBTitle3" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDFUsed3" Type="bit" />
+          <Property Name="fldUDFTitle3" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDEUsed3" Type="bit" />
+          <Property Name="fldUDETitle3" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDBUsed4" Type="bit" />
+          <Property Name="fldUDBTitle4" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDFUsed4" Type="bit" />
+          <Property Name="fldUDFTitle4" Type="nvarchar" MaxLength="200" />
+          <Property Name="fldUDEUsed4" Type="bit" />
+          <Property Name="fldUDETitle4" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblCMSValuationGroups">
+          <Key>
+            <PropertyRef Name="fldValuationGroupID" />
+          </Key>
+          <Property Name="fldValuationGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldValuationDate" Type="datetime" />
+          <Property Name="fldGroupPackageID" Type="int" />
+          <Property Name="fldDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMSValuations">
+          <Key>
+            <PropertyRef Name="fldValuationID" />
+          </Key>
+          <Property Name="fldValuationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldValuationGroupID" Type="int" />
+          <Property Name="fldPackageID" Type="int" />
+          <Property Name="fldGrossCertifiedValue" Type="float" />
+          <Property Name="fldPercentofEFC" Type="float" />
+          <Property Name="fldRetained" Type="float" />
+          <Property Name="fldWithheld" Type="float" />
+          <Property Name="fldTotalNet" Type="float" />
+          <Property Name="fldRecordStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+          <Property Name="fldRetainedPercent" Type="float" />
+          <Property Name="fldValueOffSite" Type="float" />
+          <Property Name="fldGrossToDate" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'eclCatoCM.dbo.tblCMWhoIsIn' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblCMWhoIsIn">
+          <Property Name="fldUserHistoryID" Type="int" />
+          <Property Name="fldProductProjectID" Type="int" />
+          <Property Name="fldDate" Type="datetime" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'eclCatoCM.dbo.tblDefaultCMProperties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblDefaultCMProperties">
+          <Key>
+            <PropertyRef Name="fldPropertyIndex" />
+          </Key>
+          <Property Name="fldPropertyIndex" Type="int" Nullable="false" />
+          <Property Name="fldPropertyValue" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tblPhraseCommentaryData">
+          <Key>
+            <PropertyRef Name="fldPhraseID" />
+          </Key>
+          <Property Name="fldPhraseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldProductID" Type="int" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="int" Nullable="false" />
+          <Property Name="fldDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fldPhraseData" Type="ntext" />
+          <Property Name="fldPhraseDataRTF" Type="ntext" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'eclCatoCM.dbo.tblProjectImages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblProjectImages">
+          <Key>
+            <PropertyRef Name="fldImageID" />
+          </Key>
+          <Property Name="fldImageID" Type="int" Nullable="false" />
+          <Property Name="fldProjectID" Type="int" />
+          <Property Name="fldImageName" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldImage" Type="image" />
+          <Property Name="fldImageSize" Type="int" />
+          <Property Name="fldProjectDefault" Type="bit" />
+          <Property Name="fldReportDefault" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblProjects">
+          <Key>
+            <PropertyRef Name="fldProjectID" />
+          </Key>
+          <Property Name="fldProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldSchemeID" Type="int" />
+          <Property Name="fldProjectTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="fldProjectNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="fldProjectDescription" Type="ntext" />
+          <Property Name="fldProjectClassDataID" Type="int" />
+          <Property Name="fldProjectClass" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldProjectLocationID" Type="int" />
+          <Property Name="fldProjectDate" Type="datetime" />
+          <Property Name="fldProjectCurrency" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldProjectCurrencySymbol" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldProjectExchangeRate" Type="float" />
+          <Property Name="fldProjectDeleted" Type="bit" Nullable="false" />
+          <Property Name="fldBackup" Type="datetime" />
+          <Property Name="fldArchived" Type="datetime" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldProjectDocDir" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldProjectDocFilter" Type="nvarchar" MaxLength="255" />
+          <Property Name="fldProjectCreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldProjectCreatedDate" Type="datetime" />
+          <Property Name="fldPlannedCompletion" Type="datetime" />
+          <Property Name="fldActualCompletion" Type="datetime" />
+          <Property Name="fldPrimaveraParentName" Type="nvarchar" MaxLength="40" />
+          <Property Name="fldPrimaveraName" Type="nvarchar" MaxLength="40" />
+          <Property Name="fldProjectTaxRate" Type="float" />
+          <Property Name="fldReportDate" Type="datetime" />
+          <Property Name="fldDefaultProjectImageID" Type="float" />
+          <Property Name="fldDefaultReportImageID" Type="float" />
+          <Property Name="fldRevisionStageTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldRevisionStageID" Type="smallint" />
+          <Property Name="fldRevisionStageGroupID" Type="smallint" />
+          <Property Name="fldClient" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldClientID" Type="smallint" />
+          <Property Name="fldClientGroupID" Type="smallint" />
+          <Property Name="fldClientGroup" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldISCPTemplate" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'eclCatoCM.dbo.tblProjectsExport' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblProjectsExport">
+          <Property Name="fldProjectID" Type="int" />
+          <Property Name="fldSchemeID" Type="int" />
+          <Property Name="fldProjectTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldProjectNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="fldProjectDescription" Type="ntext" />
+          <Property Name="fldProjectClassDataID" Type="int" />
+          <Property Name="fldProjectClass" Type="nvarchar" MaxLength="100" />
+          <Property Name="fldProjectLocationID" Type="int" />
+          <Property Name="fldProjectDate" Type="datetime" />
+          <Property Name="fldProjectCurrency" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldProjectCurrencySymbol" Type="nvarchar" MaxLength="3" />
+          <Property Name="fldProjectExchangeRate" Type="float" />
+          <Property Name="fldProjectDeleted" Type="bit" />
+          <Property Name="fldBackup" Type="datetime" />
+          <Property Name="fldArchive" Type="datetime" />
+          <Property Name="fldSourceID" Type="int" />
+          <Property Name="fldAddressID" Type="int" />
+          <Property Name="fldAddress" Type="ntext" />
+          <Property Name="fldPostcode" Type="nvarchar" MaxLength="10" />
+          <Property Name="fldCountryID" Type="int" />
+          <Property Name="fldCountry" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'eclCatoCM.dbo.tblProperties' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblProperties">
+          <Property Name="fldProductProjectID" Type="int" />
+          <Property Name="fldPropertyIndex" Type="int" />
+          <Property Name="fldPropertyValue" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <EntityType Name="tblReportGeneric">
+          <Key>
+            <PropertyRef Name="fldReportGenericGuid" />
+          </Key>
+          <Property Name="fldReportGenericGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="int" />
+          <Property Name="fldReportFormatID" Type="int" />
+          <Property Name="fldReportTitle" Type="ntext" />
+          <Property Name="fldReportRTFData" Type="ntext" />
+          <Property Name="fldOwnerType" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'eclCatoCM.dbo.tblUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="fldUserID" />
+            <PropertyRef Name="fldUserName" />
+            <PropertyRef Name="fldUserPassword" />
+            <PropertyRef Name="fldUserStatus" />
+          </Key>
+          <Property Name="fldUserID" Type="int" Nullable="false" />
+          <Property Name="fldUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldUserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="fldUserPassword" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="fldUserStatus" Type="bit" Nullable="false" />
+          <Property Name="fldPermissionRef" Type="smallint" />
+          <Property Name="fldSourceID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'eclCatoCM.dbo.tblVersion' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblVersion">
+          <Property Name="fldMajor" Type="int" />
+          <Property Name="fldMinor" Type="int" />
+          <Property Name="fldRevision" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'eclCatoCM.dbo.tblVersionPrevious' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblVersionPrevious">
+          <Property Name="fldMajor" Type="int" />
+          <Property Name="fldMinor" Type="int" />
+          <Property Name="fldRevision" Type="int" />
+        </EntityType>-->
+        <EntityType Name="tblXEvent">
+          <Key>
+            <PropertyRef Name="fldKeepMSSQLHappyID" />
+          </Key>
+          <Property Name="fldKeepMSSQLHappyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldID1" Type="int" />
+          <Property Name="fldEventID" Type="int" Nullable="false" />
+          <Property Name="fldEventParams" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Function Name="dt_addtosourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchSourceSafeINI" Type="varchar" Mode="In" />
+          <Parameter Name="vchProjectName" Type="varchar" Mode="In" />
+          <Parameter Name="vchComment" Type="varchar" Mode="In" />
+          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="dt_addtosourcecontrol_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchSourceSafeINI" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchProjectName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="dt_adduserobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="dt_adduserobject_vcs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchProperty" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="dt_checkinobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="chObjectType" Type="char" Mode="In" />
+          <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+          <Parameter Name="vchComment" Type="varchar" Mode="In" />
+          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+          <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+          <Parameter Name="iActionFlag" Type="int" Mode="In" />
+          <Parameter Name="txStream1" Type="text" Mode="In" />
+          <Parameter Name="txStream2" Type="text" Mode="In" />
+          <Parameter Name="txStream3" Type="text" Mode="In" />
+        </Function>
+        <Function Name="dt_checkinobject_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="chObjectType" Type="char" Mode="In" />
+          <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+          <Parameter Name="iActionFlag" Type="int" Mode="In" />
+          <Parameter Name="txStream1" Type="text" Mode="In" />
+          <Parameter Name="txStream2" Type="text" Mode="In" />
+          <Parameter Name="txStream3" Type="text" Mode="In" />
+        </Function>
+        <Function Name="dt_checkoutobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="chObjectType" Type="char" Mode="In" />
+          <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+          <Parameter Name="vchComment" Type="varchar" Mode="In" />
+          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+          <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+          <Parameter Name="iActionFlag" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dt_checkoutobject_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="chObjectType" Type="char" Mode="In" />
+          <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+          <Parameter Name="iActionFlag" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dt_displayoaerror" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iObject" Type="int" Mode="In" />
+          <Parameter Name="iresult" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dt_displayoaerror_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iObject" Type="int" Mode="In" />
+          <Parameter Name="iresult" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dt_droppropertiesbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="property" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="dt_dropuserobjectbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dt_generateansiname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="dt_getobjwithprop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="property" Type="varchar" Mode="In" />
+          <Parameter Name="value" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="dt_getobjwithprop_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="property" Type="varchar" Mode="In" />
+          <Parameter Name="uvalue" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="dt_getpropertiesbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="property" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="dt_getpropertiesbyid_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="property" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="dt_getpropertiesbyid_vcs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="property" Type="varchar" Mode="In" />
+          <Parameter Name="value" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="dt_getpropertiesbyid_vcs_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="property" Type="varchar" Mode="In" />
+          <Parameter Name="value" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="dt_isundersourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+          <Parameter Name="iWhoToo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dt_isundersourcecontrol_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="iWhoToo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dt_removefromsourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="dt_setpropertybyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="property" Type="varchar" Mode="In" />
+          <Parameter Name="value" Type="varchar" Mode="In" />
+          <Parameter Name="lvalue" Type="image" Mode="In" />
+        </Function>
+        <Function Name="dt_setpropertybyid_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="property" Type="varchar" Mode="In" />
+          <Parameter Name="uvalue" Type="nvarchar" Mode="In" />
+          <Parameter Name="lvalue" Type="image" Mode="In" />
+        </Function>
+        <Function Name="dt_validateloginparams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="dt_validateloginparams_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="dt_vcsenabled" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="dt_verstamp006" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="dt_verstamp007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="dt_whocheckedout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="chObjectType" Type="char" Mode="In" />
+          <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="dt_whocheckedout_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="chObjectType" Type="char" Mode="In" />
+          <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="eclCatoCMModelStoreContainer">
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCatoCMProject" EntityType="Self.tblCatoCMProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMColumnOrderDetails" EntityType="Self.tblCMColumnOrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMGroupPackageGridHeaders" EntityType="Self.tblCMGroupPackageGridHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMGroupsFormOptionalHeaders" EntityType="Self.tblCMGroupsFormOptionalHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMPackagesFormOptionalHeaders" EntityType="Self.tblCMPackagesFormOptionalHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMProjects" EntityType="Self.tblCMProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSChangeDetails" EntityType="Self.tblCMSChangeDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSChangeIndex" EntityType="Self.tblCMSChangeIndex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSChangeStatus" EntityType="Self.tblCMSChangeStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSChangeTypes" EntityType="Self.tblCMSChangeTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSContractReportingPeriods" EntityType="Self.tblCMSContractReportingPeriods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSContracts" EntityType="Self.tblCMSContracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSDisciplines" EntityType="Self.tblCMSDisciplines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSGroupPackages" EntityType="Self.tblCMSGroupPackages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSGroups" EntityType="Self.tblCMSGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSPackages" EntityType="Self.tblCMSPackages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSProjectReportExclusions" EntityType="Self.tblCMSProjectReportExclusions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSProjects" EntityType="Self.tblCMSProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSReportPeriods" EntityType="Self.tblCMSReportPeriods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSTrafficLights" EntityType="Self.tblCMSTrafficLights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSUserDefineFields" EntityType="Self.tblCMSUserDefineFields" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSValuationGroups" EntityType="Self.tblCMSValuationGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCMSValuations" EntityType="Self.tblCMSValuations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPhraseCommentaryData" EntityType="Self.tblPhraseCommentaryData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjects" EntityType="Self.tblProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblReportGeneric" EntityType="Self.tblReportGeneric" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblXEvent" EntityType="Self.tblXEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAddresses" EntityType="Self.tblAddresses" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblAddresses].[fldAddressID] AS [fldAddressID], 
+    [tblAddresses].[fldAddress] AS [fldAddress], 
+    [tblAddresses].[fldPostCode] AS [fldPostCode], 
+    [tblAddresses].[fldCountryID] AS [fldCountryID], 
+    [tblAddresses].[fldSourceID] AS [fldSourceID], 
+    [tblAddresses].[fldAddress1] AS [fldAddress1], 
+    [tblAddresses].[fldCity] AS [fldCity], 
+    [tblAddresses].[fldCounty] AS [fldCounty], 
+    [tblAddresses].[fldLatitude] AS [fldLatitude], 
+    [tblAddresses].[fldLongitude] AS [fldLongitude]
+    FROM [dbo].[tblAddresses] AS [tblAddresses]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblDefaultCMProperties" EntityType="Self.tblDefaultCMProperties" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblDefaultCMProperties].[fldPropertyIndex] AS [fldPropertyIndex], 
+    [tblDefaultCMProperties].[fldPropertyValue] AS [fldPropertyValue]
+    FROM [dbo].[tblDefaultCMProperties] AS [tblDefaultCMProperties]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblProjectImages" EntityType="Self.tblProjectImages" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblProjectImages].[fldImageID] AS [fldImageID], 
+    [tblProjectImages].[fldProjectID] AS [fldProjectID], 
+    [tblProjectImages].[fldImageName] AS [fldImageName], 
+    [tblProjectImages].[fldImage] AS [fldImage], 
+    [tblProjectImages].[fldImageSize] AS [fldImageSize], 
+    [tblProjectImages].[fldProjectDefault] AS [fldProjectDefault], 
+    [tblProjectImages].[fldReportDefault] AS [fldReportDefault]
+    FROM [dbo].[tblProjectImages] AS [tblProjectImages]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblUsers].[fldUserID] AS [fldUserID], 
+    [tblUsers].[fldUser] AS [fldUser], 
+    [tblUsers].[fldUserName] AS [fldUserName], 
+    [tblUsers].[fldUserPassword] AS [fldUserPassword], 
+    [tblUsers].[fldUserStatus] AS [fldUserStatus], 
+    [tblUsers].[fldPermissionRef] AS [fldPermissionRef], 
+    [tblUsers].[fldSourceID] AS [fldSourceID]
+    FROM [dbo].[tblUsers] AS [tblUsers]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eclCatoCMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dtproperty">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="objectid" Type="Int32" />
+          <Property Name="property" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="uvalue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="version" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMColumnOrderDetail">
+          <Key>
+            <PropertyRef Name="fldCMProjectID" />
+          </Key>
+          <Property Name="fldCMProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldColumnsOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldColumnsHidden" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMGroupPackageGridHeader">
+          <Key>
+            <PropertyRef Name="fldCMProjectID" />
+          </Key>
+          <Property Name="fldCMProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldOption4Installed" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldGroupPackageCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldGroupPackageLabel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldInitialBudget" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldTransfers" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldClientChanges" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDBTitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDBTitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDBTitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDBTitle4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="clcCurrentBudget" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldAcceptedTenders" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldOrdersYetToPlace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldCostVariations" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDETitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDETitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDETitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDETitle4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="clcEstimatedFinalCost" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldContingency" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldAnticipatedChanges" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdvanceWarnings" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDFTitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDFTitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDFTitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDFTitle4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="clcPotentialOutturnCost" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldAgreedValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldGrossValueCertified" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldSpendToDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldComments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldClientRef" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMGroupsFormOptionalHeader">
+          <Key>
+            <PropertyRef Name="fldProductProjectID" />
+          </Key>
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldGrpRef1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldGrpRef1Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldGrpRef2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldGrpRef2Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldGrpRef3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldGrpRef3Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldGrpName1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldGrpName1Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldGrpName2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldGrpName2Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldGrpParentCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldGrpParentCodeHidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldGrpParentLabel" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldGrpParentLabelHidden" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMPackagesFormOptionalHeader">
+          <Key>
+            <PropertyRef Name="fldProductProjectID" />
+          </Key>
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldPackRef1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldPackRef1Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldPackRef2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldPackRef2Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldPackRef3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldPackRef3Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldPackName1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldPackName1Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldPackName2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldPackName2Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldPackName3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldPackName3Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldPackName4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldPackName4Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldPackName5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fldPackName5Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="fldPackName6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldPackName6Hidden" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMProject">
+          <Key>
+            <PropertyRef Name="fldProductProjectID" />
+          </Key>
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMSChangeDetail">
+          <Key>
+            <PropertyRef Name="fldChangeDetailID" />
+          </Key>
+          <Property Name="fldChangeDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldChangeIndexID" Type="Int32" />
+          <Property Name="fldChangeTypeID" Type="Int32" />
+          <Property Name="fldChangeFromID" Type="Int32" />
+          <Property Name="fldChangeToID" Type="Int32" />
+          <Property Name="fldChangeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldChangeValue" Type="Double" />
+          <Property Name="fldRecordStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldAgreedValue" Type="Double" />
+          <Property Name="fldAgreed" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldChangeOrder" Type="Double" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldChangeValueA" Type="Double" />
+          <Property Name="fldChangeValueB" Type="Double" />
+          <Property Name="fldChangeValueFlagA" Type="Boolean" />
+          <Property Name="fldChangeValueFlagB" Type="Boolean" />
+          <Property Name="fldComments" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMSChangeIndex">
+          <Key>
+            <PropertyRef Name="fldChangeUniqueID" />
+          </Key>
+          <Property Name="fldChangeUniqueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldGroupPackageID" Type="Int32" />
+          <Property Name="fldChangeIDinGroupPackage" Type="Int32" />
+          <Property Name="fldDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldFullChangeTypeString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldDisciplineID" Type="Int32" />
+          <Property Name="fldStatusID" Type="Int32" />
+          <Property Name="fldDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldPeriodEnteredID" Type="Int32" />
+          <Property Name="fldPeriodAuthorisedID" Type="Int32" />
+          <Property Name="fldAIDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldAINo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldInfoFrom" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldActionComment" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldSource" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldFullFromString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldFullToString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldFullValueAmount" Type="Double" />
+          <Property Name="fldRecordStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldLocked" Type="Boolean" />
+          <Property Name="fldAdd1Value" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd2Value" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd3Value" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd4Value" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMSChangeStatu">
+          <Key>
+            <PropertyRef Name="fldStatusID" />
+          </Key>
+          <Property Name="fldStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProductProjectID" Type="Int32" />
+          <Property Name="fldSystemDefaultStatus" Type="Boolean" />
+          <Property Name="fldStatusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldStatusDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldStatusTrafficLightTypeID" Type="Int32" />
+          <Property Name="fldRecordStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldTrafficLightColour" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="fldChangeCommentary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMSChangeType">
+          <Key>
+            <PropertyRef Name="fldChangeTypeID" />
+          </Key>
+          <Property Name="fldChangeTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProductProjectID" Type="Int32" />
+          <Property Name="fldChangeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldChangeDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldFromBucketString" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="fldToBucketString" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="fldPredefinedYesNo" Type="Boolean" />
+          <Property Name="fldFullDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fldRecordStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldChangeCommentary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMSContractReportingPeriod">
+          <Key>
+            <PropertyRef Name="fldPeriodID" />
+          </Key>
+          <Property Name="fldPeriodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldGroupPackageID" Type="Int32" />
+          <Property Name="fldRowOrderID" Type="Int32" />
+          <Property Name="fldPeriodDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldPlannedPeriodStartDate" Type="DateTime" Precision="3" />
+          <Property Name="fldPlannedPeriodCompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="fldActualPeriodStartDate" Type="DateTime" Precision="3" />
+          <Property Name="fldActualPeriodCompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="fldFirstChangeNumber" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="fldDateofChange" Type="DateTime" Precision="3" />
+          <Property Name="fldRecordStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldReportDate" Type="DateTime" Precision="3" />
+          <Property Name="fldReportNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="fldContractID" Type="Int16" />
+        </EntityType>
+        <EntityType Name="tblCMSContract">
+          <Key>
+            <PropertyRef Name="fldContractID" />
+          </Key>
+          <Property Name="fldContractID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProductProjectID" Type="Int32" />
+          <Property Name="fldContractName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldContractDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldRowOrderID" Type="Int16" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldComments" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldClassificationID" Type="Int16" />
+          <Property Name="fldElementClassName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMSDiscipline">
+          <Key>
+            <PropertyRef Name="fldDisciplineID" />
+          </Key>
+          <Property Name="fldDisciplineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldSystemDefaultDiscipline" Type="Boolean" />
+          <Property Name="fldDisciplineCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldDisciplineDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldGroupPackageID" Type="Int32" />
+          <Property Name="fldRecordStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMSGroupPackage">
+          <Key>
+            <PropertyRef Name="fldGroupPackageID" />
+          </Key>
+          <Property Name="fldGroupPackageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProductProjectID" Type="Int32" />
+          <Property Name="fldContractID" Type="Int32" />
+          <Property Name="fldGroupPackageName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldGroupPackageDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldPreDefinedYesNo" Type="Boolean" />
+          <Property Name="fldInitialBudgetDate" Type="DateTime" Precision="3" />
+          <Property Name="fldGrossInterimValuationDate" Type="DateTime" Precision="3" />
+          <Property Name="fldContractCommencementDate" Type="DateTime" Precision="3" />
+          <Property Name="fldContractCompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="fldExtendedContractCompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="fldContractBudget" Type="Double" />
+          <Property Name="fldContractVAT" Type="Double" />
+          <Property Name="fldContractNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldPreviousAdvanceWarnings" Type="Double" />
+          <Property Name="fldPreviousUnapprovedEstimates" Type="Double" />
+          <Property Name="fldPreviousUnapprovedClaims" Type="Double" />
+          <Property Name="fldAdd1Label" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd1Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd2Label" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd2Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd3Label" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd3Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd4Label" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldAdd4Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldAINUMLabel" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldCurrentReportingPeriodID" Type="Int32" />
+          <Property Name="fldCurrentValuationGroupID" Type="Int32" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldActiveReportToPrint" Type="Boolean" />
+          <Property Name="fldIsTotal" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="fldPreviousTotal" Type="Int16" />
+        </EntityType>
+        <EntityType Name="tblCMSGroup">
+          <Key>
+            <PropertyRef Name="fldGroupID" />
+          </Key>
+          <Property Name="fldGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldGroupPackageID" Type="Int32" />
+          <Property Name="fldGroupCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldGroupLabel" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldSequenceNumber" Type="Int32" />
+          <Property Name="fldClientRef" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldTotalIndicator" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="fldDeleted" Type="Boolean" />
+          <Property Name="fldInitialBudget" Type="Double" />
+          <Property Name="fldTransfers" Type="Double" />
+          <Property Name="fldClientChanges" Type="Double" />
+          <Property Name="fldCurrentBudget" Type="Double" />
+          <Property Name="fldPreviousBudget" Type="Double" />
+          <Property Name="fldAcceptedTenders" Type="Double" />
+          <Property Name="fldOrdersYetToPlace" Type="Double" />
+          <Property Name="fldCostVariations" Type="Double" />
+          <Property Name="fldEstimatedFinalCost" Type="Double" />
+          <Property Name="fldPreviousForecast" Type="Double" />
+          <Property Name="fldGrossValueCertified" Type="Double" />
+          <Property Name="fldContingency" Type="Double" />
+          <Property Name="fldAnticipatedChanges" Type="Double" />
+          <Property Name="fldAdvanceWarnings" Type="Double" />
+          <Property Name="fldDefinedinCatoCP" Type="Int32" />
+          <Property Name="fldPotentialOutturnCosts" Type="Double" />
+          <Property Name="fldAgreedValue" Type="Double" />
+          <Property Name="fldPreviousPotentialOutturnCosts" Type="Double" />
+          <Property Name="fldPreviousAgreedValue" Type="Double" />
+          <Property Name="fldRowOrderId" Type="Int16" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldUnallocatedIndicator" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="fldRetained" Type="Double" />
+          <Property Name="fldWithheld" Type="Double" />
+          <Property Name="fldLastChangeOrder" Type="Int32" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldSpendToDate" Type="Double" />
+          <Property Name="fldPreviousGrossCertified" Type="Double" />
+          <Property Name="fldPreviousTotalNet" Type="Double" />
+          <Property Name="fldUDBudget1" Type="Double" />
+          <Property Name="fldUDForecast1" Type="Double" />
+          <Property Name="fldUDExpenditure1" Type="Double" />
+          <Property Name="fldUDBudget2" Type="Double" />
+          <Property Name="fldUDForecast2" Type="Double" />
+          <Property Name="fldUDExpenditure2" Type="Double" />
+          <Property Name="fldUDBudget3" Type="Double" />
+          <Property Name="fldUDForecast3" Type="Double" />
+          <Property Name="fldUDExpenditure3" Type="Double" />
+          <Property Name="fldUDBudget4" Type="Double" />
+          <Property Name="fldUDForecast4" Type="Double" />
+          <Property Name="fldUDExpenditure4" Type="Double" />
+          <Property Name="fldComments" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldParentCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldParentLabel" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldName1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldName2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldPreviousAcceptedTenders" Type="Double" />
+          <Property Name="fldPreviousSpendToDate" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblCMSPackage">
+          <Key>
+            <PropertyRef Name="fldPackageID" />
+          </Key>
+          <Property Name="fldPackageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldGroupPackageID" Type="Int32" />
+          <Property Name="fldGroupID" Type="Int32" />
+          <Property Name="fldPackageCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldPackageLabel" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldSequenceNumber" Type="Int32" />
+          <Property Name="fldClientRef" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldTotalIndicator" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="fldDeleted" Type="Boolean" />
+          <Property Name="fldInitialBudget" Type="Double" />
+          <Property Name="fldInitialBudgetLocked" Type="Boolean" />
+          <Property Name="fldTransfers" Type="Double" />
+          <Property Name="fldClientChanges" Type="Double" />
+          <Property Name="fldCurrentBudget" Type="Double" />
+          <Property Name="fldPreviousBudget" Type="Double" />
+          <Property Name="fldAcceptedTenders" Type="Double" />
+          <Property Name="fldOrdersYetToPlace" Type="Double" />
+          <Property Name="fldCostVariations" Type="Double" />
+          <Property Name="fldEstimatedFinalCost" Type="Double" />
+          <Property Name="fldPreviousForecast" Type="Double" />
+          <Property Name="fldGrossValueCertified" Type="Double" />
+          <Property Name="fldContingency" Type="Double" />
+          <Property Name="fldAnticipatedChanges" Type="Double" />
+          <Property Name="fldAdvanceWarnings" Type="Double" />
+          <Property Name="fldDefinedinCatoCP" Type="Int32" />
+          <Property Name="fldPotentialOutturnCosts" Type="Double" />
+          <Property Name="fldAgreedValue" Type="Double" />
+          <Property Name="fldPreviousPotentialOutturnCosts" Type="Double" />
+          <Property Name="fldPreviousAgreedValue" Type="Double" />
+          <Property Name="fldRowOrderId" Type="Int16" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldRetained" Type="Double" />
+          <Property Name="fldWithheld" Type="Double" />
+          <Property Name="fldLastChangeOrder" Type="Double" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldSpendToDate" Type="Double" />
+          <Property Name="fldPreviousGrossCertified" Type="Double" />
+          <Property Name="fldPreviousTotalNet" Type="Double" />
+          <Property Name="fldUDBudget1" Type="Double" />
+          <Property Name="fldUDForecast1" Type="Double" />
+          <Property Name="fldUDExpenditure1" Type="Double" />
+          <Property Name="fldUDBudget2" Type="Double" />
+          <Property Name="fldUDForecast2" Type="Double" />
+          <Property Name="fldUDExpenditure2" Type="Double" />
+          <Property Name="fldUDBudget3" Type="Double" />
+          <Property Name="fldUDForecast3" Type="Double" />
+          <Property Name="fldUDExpenditure3" Type="Double" />
+          <Property Name="fldUDBudget4" Type="Double" />
+          <Property Name="fldUDForecast4" Type="Double" />
+          <Property Name="fldUDExpenditure4" Type="Double" />
+          <Property Name="fldContractor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldComments" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldThreshold1" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="fldThreshold2" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="fldPackageLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldName3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldName4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldName5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRef3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldPreviousAcceptedTenders" Type="Double" />
+          <Property Name="fldPreviousSpendToDate" Type="Double" />
+          <Property Name="fldName6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMSProjectReportExclusion">
+          <Key>
+            <PropertyRef Name="fldExclusionID" />
+          </Key>
+          <Property Name="fldExclusionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProjectID" Type="Int32" />
+          <Property Name="fldOrderinProject" Type="Int32" />
+          <Property Name="fldExclusionMemo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldRecordStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblCMSProject">
+          <Key>
+            <PropertyRef Name="fldProjectID" />
+          </Key>
+          <Property Name="fldProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMSReportPeriod">
+          <Key>
+            <PropertyRef Name="fldPeriodID" />
+          </Key>
+          <Property Name="fldPeriodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldGroupPackageID" Type="Int32" />
+          <Property Name="fldCurrentReportingPeriod" Type="Int32" />
+          <Property Name="fldDateofChange" Type="DateTime" Precision="3" />
+          <Property Name="fldSourceID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblCMSTrafficLight">
+          <Key>
+            <PropertyRef Name="fldTrafficLightID" />
+          </Key>
+          <Property Name="fldTrafficLightID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProjectID" Type="Int32" />
+          <Property Name="fldTypeID" Type="Int32" />
+          <Property Name="fldDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldQBColorValue" Type="Int32" />
+          <Property Name="fldSourceID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblCMSUserDefineField">
+          <Key>
+            <PropertyRef Name="fldUDFieldID" />
+          </Key>
+          <Property Name="fldUDFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProductProjectID" Type="Int32" />
+          <Property Name="fldUDBUsed1" Type="Boolean" />
+          <Property Name="fldUDBTitle1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDFUsed1" Type="Boolean" />
+          <Property Name="fldUDFTitle1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDEUsed1" Type="Boolean" />
+          <Property Name="fldUDETitle1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDBUsed2" Type="Boolean" />
+          <Property Name="fldUDBTitle2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDFUsed2" Type="Boolean" />
+          <Property Name="fldUDFTitle2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDEUsed2" Type="Boolean" />
+          <Property Name="fldUDETitle2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDBUsed3" Type="Boolean" />
+          <Property Name="fldUDBTitle3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDFUsed3" Type="Boolean" />
+          <Property Name="fldUDFTitle3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDEUsed3" Type="Boolean" />
+          <Property Name="fldUDETitle3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDBUsed4" Type="Boolean" />
+          <Property Name="fldUDBTitle4" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDFUsed4" Type="Boolean" />
+          <Property Name="fldUDFTitle4" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fldUDEUsed4" Type="Boolean" />
+          <Property Name="fldUDETitle4" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCMSValuationGroup">
+          <Key>
+            <PropertyRef Name="fldValuationGroupID" />
+          </Key>
+          <Property Name="fldValuationGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldValuationDate" Type="DateTime" Precision="3" />
+          <Property Name="fldGroupPackageID" Type="Int32" />
+          <Property Name="fldDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCMSValuation">
+          <Key>
+            <PropertyRef Name="fldValuationID" />
+          </Key>
+          <Property Name="fldValuationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldValuationGroupID" Type="Int32" />
+          <Property Name="fldPackageID" Type="Int32" />
+          <Property Name="fldGrossCertifiedValue" Type="Double" />
+          <Property Name="fldPercentofEFC" Type="Double" />
+          <Property Name="fldRetained" Type="Double" />
+          <Property Name="fldWithheld" Type="Double" />
+          <Property Name="fldTotalNet" Type="Double" />
+          <Property Name="fldRecordStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldRetainedPercent" Type="Double" />
+          <Property Name="fldValueOffSite" Type="Double" />
+          <Property Name="fldGrossToDate" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblPhraseCommentaryData">
+          <Key>
+            <PropertyRef Name="fldPhraseID" />
+          </Key>
+          <Property Name="fldPhraseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProductID" Type="Int32" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fldDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fldPhraseData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldPhraseDataRTF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblReportGeneric">
+          <Key>
+            <PropertyRef Name="fldReportGenericGuid" />
+          </Key>
+          <Property Name="fldReportGenericGuid" Type="Guid" Nullable="false" />
+          <Property Name="fldProductProjectID" Type="Int32" />
+          <Property Name="fldReportFormatID" Type="Int32" />
+          <Property Name="fldReportTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldReportRTFData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldOwnerType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblXEvent">
+          <Key>
+            <PropertyRef Name="fldKeepMSSQLHappyID" />
+          </Key>
+          <Property Name="fldKeepMSSQLHappyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldID1" Type="Int32" />
+          <Property Name="fldEventID" Type="Int32" Nullable="false" />
+          <Property Name="fldEventParams" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="eclCatoCMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperty" />
+          <EntitySet Name="tblCMColumnOrderDetails" EntityType="Self.tblCMColumnOrderDetail" />
+          <EntitySet Name="tblCMGroupPackageGridHeaders" EntityType="Self.tblCMGroupPackageGridHeader" />
+          <EntitySet Name="tblCMGroupsFormOptionalHeaders" EntityType="Self.tblCMGroupsFormOptionalHeader" />
+          <EntitySet Name="tblCMPackagesFormOptionalHeaders" EntityType="Self.tblCMPackagesFormOptionalHeader" />
+          <EntitySet Name="tblCMProjects" EntityType="Self.tblCMProject" />
+          <EntitySet Name="tblCMSChangeDetails" EntityType="Self.tblCMSChangeDetail" />
+          <EntitySet Name="tblCMSChangeIndexes" EntityType="Self.tblCMSChangeIndex" />
+          <EntitySet Name="tblCMSChangeStatus" EntityType="Self.tblCMSChangeStatu" />
+          <EntitySet Name="tblCMSChangeTypes" EntityType="Self.tblCMSChangeType" />
+          <EntitySet Name="tblCMSContractReportingPeriods" EntityType="Self.tblCMSContractReportingPeriod" />
+          <EntitySet Name="tblCMSContracts" EntityType="Self.tblCMSContract" />
+          <EntitySet Name="tblCMSDisciplines" EntityType="Self.tblCMSDiscipline" />
+          <EntitySet Name="tblCMSGroupPackages" EntityType="Self.tblCMSGroupPackage" />
+          <EntitySet Name="tblCMSGroups" EntityType="Self.tblCMSGroup" />
+          <EntitySet Name="tblCMSPackages" EntityType="Self.tblCMSPackage" />
+          <EntitySet Name="tblCMSProjectReportExclusions" EntityType="Self.tblCMSProjectReportExclusion" />
+          <EntitySet Name="tblCMSProjects" EntityType="Self.tblCMSProject" />
+          <EntitySet Name="tblCMSReportPeriods" EntityType="Self.tblCMSReportPeriod" />
+          <EntitySet Name="tblCMSTrafficLights" EntityType="Self.tblCMSTrafficLight" />
+          <EntitySet Name="tblCMSUserDefineFields" EntityType="Self.tblCMSUserDefineField" />
+          <EntitySet Name="tblCMSValuationGroups" EntityType="Self.tblCMSValuationGroup" />
+          <EntitySet Name="tblCMSValuations" EntityType="Self.tblCMSValuation" />
+          <EntitySet Name="tblPhraseCommentaryDatas" EntityType="Self.tblPhraseCommentaryData" />
+          <EntitySet Name="tblReportGenerics" EntityType="Self.tblReportGeneric" />
+          <EntitySet Name="tblXEvents" EntityType="Self.tblXEvent" />
+          <FunctionImport Name="dt_addtosourcecontrol">
+            <Parameter Name="vchSourceSafeINI" Mode="In" Type="String" />
+            <Parameter Name="vchProjectName" Mode="In" Type="String" />
+            <Parameter Name="vchComment" Mode="In" Type="String" />
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_addtosourcecontrol_u">
+            <Parameter Name="vchSourceSafeINI" Mode="In" Type="String" />
+            <Parameter Name="vchProjectName" Mode="In" Type="String" />
+            <Parameter Name="vchComment" Mode="In" Type="String" />
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_adduserobject" />
+          <FunctionImport Name="dt_adduserobject_vcs">
+          <Parameter Name="vchProperty" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_checkinobject">
+            <Parameter Name="chObjectType" Mode="In" Type="String" />
+            <Parameter Name="vchObjectName" Mode="In" Type="String" />
+            <Parameter Name="vchComment" Mode="In" Type="String" />
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+            <Parameter Name="iVCSFlags" Mode="In" Type="Int32" />
+            <Parameter Name="iActionFlag" Mode="In" Type="Int32" />
+            <Parameter Name="txStream1" Mode="In" Type="String" />
+            <Parameter Name="txStream2" Mode="In" Type="String" />
+            <Parameter Name="txStream3" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_checkinobject_u">
+            <Parameter Name="chObjectType" Mode="In" Type="String" />
+            <Parameter Name="vchObjectName" Mode="In" Type="String" />
+            <Parameter Name="vchComment" Mode="In" Type="String" />
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+            <Parameter Name="iVCSFlags" Mode="In" Type="Int32" />
+            <Parameter Name="iActionFlag" Mode="In" Type="Int32" />
+            <Parameter Name="txStream1" Mode="In" Type="String" />
+            <Parameter Name="txStream2" Mode="In" Type="String" />
+            <Parameter Name="txStream3" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_checkoutobject">
+            <Parameter Name="chObjectType" Mode="In" Type="String" />
+            <Parameter Name="vchObjectName" Mode="In" Type="String" />
+            <Parameter Name="vchComment" Mode="In" Type="String" />
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+            <Parameter Name="iVCSFlags" Mode="In" Type="Int32" />
+            <Parameter Name="iActionFlag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dt_checkoutobject_u">
+            <Parameter Name="chObjectType" Mode="In" Type="String" />
+            <Parameter Name="vchObjectName" Mode="In" Type="String" />
+            <Parameter Name="vchComment" Mode="In" Type="String" />
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+            <Parameter Name="iVCSFlags" Mode="In" Type="Int32" />
+            <Parameter Name="iActionFlag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dt_displayoaerror">
+            <Parameter Name="iObject" Mode="In" Type="Int32" />
+            <Parameter Name="iresult" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dt_displayoaerror_u">
+            <Parameter Name="iObject" Mode="In" Type="Int32" />
+            <Parameter Name="iresult" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dt_droppropertiesbyid">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="property" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_dropuserobjectbyid">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dt_generateansiname">
+          <Parameter Name="name" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_getobjwithprop" ReturnType="Collection(Int32)">
+            <Parameter Name="property" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_getobjwithprop_u" ReturnType="Collection(Int32)">
+            <Parameter Name="property" Mode="In" Type="String" />
+            <Parameter Name="uvalue" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_getpropertiesbyid" ReturnType="Collection(eclCatoCMModel.dt_getpropertiesbyid_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="property" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_getpropertiesbyid_u" ReturnType="Collection(eclCatoCMModel.dt_getpropertiesbyid_u_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="property" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_getpropertiesbyid_vcs">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="property" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_getpropertiesbyid_vcs_u">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="property" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_isundersourcecontrol">
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+            <Parameter Name="iWhoToo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dt_isundersourcecontrol_u">
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+            <Parameter Name="iWhoToo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dt_removefromsourcecontrol" />
+          <FunctionImport Name="dt_setpropertybyid">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="property" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="In" Type="String" />
+            <Parameter Name="lvalue" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="dt_setpropertybyid_u">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="property" Mode="In" Type="String" />
+            <Parameter Name="uvalue" Mode="In" Type="String" />
+            <Parameter Name="lvalue" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="dt_validateloginparams">
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_validateloginparams_u">
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_vcsenabled" />
+          <FunctionImport Name="dt_verstamp006" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="dt_verstamp007" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="dt_whocheckedout">
+            <Parameter Name="chObjectType" Mode="In" Type="String" />
+            <Parameter Name="vchObjectName" Mode="In" Type="String" />
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dt_whocheckedout_u">
+            <Parameter Name="chObjectType" Mode="In" Type="String" />
+            <Parameter Name="vchObjectName" Mode="In" Type="String" />
+            <Parameter Name="vchLoginName" Mode="In" Type="String" />
+            <Parameter Name="vchPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblCatoCMProjects" EntityType="eclCatoCMModel.tblCatoCMProject" />
+          <EntitySet Name="tblProjects" EntityType="eclCatoCMModel.tblProject" />
+          <EntitySet Name="tblAddresses" EntityType="eclCatoCMModel.tblAddress" />
+          <EntitySet Name="tblDefaultCMProperties" EntityType="eclCatoCMModel.tblDefaultCMProperty" />
+          <EntitySet Name="tblProjectImages" EntityType="eclCatoCMModel.tblProjectImage" />
+          <EntitySet Name="tblUsers" EntityType="eclCatoCMModel.tblUser" />
+        </EntityContainer>
+        <ComplexType Name="dt_getpropertiesbyid_Result">
+          <Property Type="String" Name="property" Nullable="false" MaxLength="64" />
+          <Property Type="Int32" Name="version" Nullable="false" />
+          <Property Type="String" Name="value" Nullable="true" MaxLength="255" />
+          <Property Type="Binary" Name="lvalue" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="dt_getpropertiesbyid_u_Result">
+          <Property Type="String" Name="property" Nullable="false" MaxLength="64" />
+          <Property Type="Int32" Name="version" Nullable="false" />
+          <Property Type="String" Name="uvalue" Nullable="true" MaxLength="255" />
+          <Property Type="Binary" Name="lvalue" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <EntityType Name="tblCatoCMProject">
+          <Key>
+            <PropertyRef Name="fldCatoCMProjectID" />
+          </Key>
+          <Property Name="fldCatoCMProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldProjectID" Type="Int32" />
+          <Property Name="fldVersionID" Type="Int16" />
+          <Property Name="fldRevisionID" Type="Int16" />
+          <Property Name="fldVersionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldRevisionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldLatestVersion" Type="Boolean" Nullable="false" />
+          <Property Name="fldLatestRevision" Type="Boolean" Nullable="false" />
+          <Property Name="fldTotalCost" Type="Double" />
+          <Property Name="fldTotalCostRounded" Type="Double" />
+          <Property Name="fldProjectFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectOffline" Type="Boolean" Nullable="false" />
+          <Property Name="fldProjectOfflineOwner" Type="Int32" />
+          <Property Name="fldPermissionRef" Type="Int16" />
+          <Property Name="fldLocked" Type="Int32" />
+          <Property Name="fldLockedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldStatus" Type="Int32" Nullable="false" />
+          <Property Name="fldUserID" Type="Int32" />
+          <Property Name="fldReadOnly" Type="Boolean" Nullable="false" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldMigrated" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblProject">
+          <Key>
+            <PropertyRef Name="fldProjectID" />
+          </Key>
+          <Property Name="fldProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldSchemeID" Type="Int32" />
+          <Property Name="fldProjectTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectClassDataID" Type="Int32" />
+          <Property Name="fldProjectClass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectLocationID" Type="Int32" />
+          <Property Name="fldProjectDate" Type="DateTime" Precision="3" />
+          <Property Name="fldProjectCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectCurrencySymbol" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectExchangeRate" Type="Double" />
+          <Property Name="fldProjectDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="fldBackup" Type="DateTime" Precision="3" />
+          <Property Name="fldArchived" Type="DateTime" Precision="3" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldProjectDocDir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectDocFilter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectCreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectCreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="fldPlannedCompletion" Type="DateTime" Precision="3" />
+          <Property Name="fldActualCompletion" Type="DateTime" Precision="3" />
+          <Property Name="fldPrimaveraParentName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="fldPrimaveraName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="fldProjectTaxRate" Type="Double" />
+          <Property Name="fldReportDate" Type="DateTime" Precision="3" />
+          <Property Name="fldDefaultProjectImageID" Type="Double" />
+          <Property Name="fldDefaultReportImageID" Type="Double" />
+          <Property Name="fldRevisionStageTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldRevisionStageID" Type="Int16" />
+          <Property Name="fldRevisionStageGroupID" Type="Int16" />
+          <Property Name="fldClient" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldClientID" Type="Int16" />
+          <Property Name="fldClientGroupID" Type="Int16" />
+          <Property Name="fldClientGroup" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldISCPTemplate" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblAddress">
+          <Key>
+            <PropertyRef Name="fldAddressID" />
+          </Key>
+          <Property Name="fldAddressID" Type="Int32" Nullable="false" />
+          <Property Name="fldAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldPostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="fldCountryID" Type="Int32" />
+          <Property Name="fldSourceID" Type="Int32" />
+          <Property Name="fldAddress1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldCity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldCounty" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldLatitude" Type="Double" />
+          <Property Name="fldLongitude" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblDefaultCMProperty">
+          <Key>
+            <PropertyRef Name="fldPropertyIndex" />
+          </Key>
+          <Property Name="fldPropertyIndex" Type="Int32" Nullable="false" />
+          <Property Name="fldPropertyValue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblProjectImage">
+          <Key>
+            <PropertyRef Name="fldImageID" />
+          </Key>
+          <Property Name="fldImageID" Type="Int32" Nullable="false" />
+          <Property Name="fldProjectID" Type="Int32" />
+          <Property Name="fldImageName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fldImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="fldImageSize" Type="Int32" />
+          <Property Name="fldProjectDefault" Type="Boolean" />
+          <Property Name="fldReportDefault" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="fldUserID" />
+            <PropertyRef Name="fldUserName" />
+            <PropertyRef Name="fldUserPassword" />
+            <PropertyRef Name="fldUserStatus" />
+          </Key>
+          <Property Name="fldUserID" Type="Int32" Nullable="false" />
+          <Property Name="fldUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldUserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fldUserPassword" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="fldUserStatus" Type="Boolean" Nullable="false" />
+          <Property Name="fldPermissionRef" Type="Int16" />
+          <Property Name="fldSourceID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eclCatoCMModelStoreContainer" CdmEntityContainer="eclCatoCMEntities">
+          <EntitySetMapping Name="dtproperties">
+            <EntityTypeMapping TypeName="eclCatoCMModel.dtproperty">
+              <MappingFragment StoreEntitySet="dtproperties">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="objectid" ColumnName="objectid" />
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+                <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMColumnOrderDetails">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMColumnOrderDetail">
+              <MappingFragment StoreEntitySet="tblCMColumnOrderDetails">
+                <ScalarProperty Name="fldCMProjectID" ColumnName="fldCMProjectID" />
+                <ScalarProperty Name="fldColumnsOrder" ColumnName="fldColumnsOrder" />
+                <ScalarProperty Name="fldColumnsHidden" ColumnName="fldColumnsHidden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMGroupPackageGridHeaders">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMGroupPackageGridHeader">
+              <MappingFragment StoreEntitySet="tblCMGroupPackageGridHeaders">
+                <ScalarProperty Name="fldCMProjectID" ColumnName="fldCMProjectID" />
+                <ScalarProperty Name="fldOption4Installed" ColumnName="fldOption4Installed" />
+                <ScalarProperty Name="fldGroupPackageCode" ColumnName="fldGroupPackageCode" />
+                <ScalarProperty Name="fldGroupPackageLabel" ColumnName="fldGroupPackageLabel" />
+                <ScalarProperty Name="fldInitialBudget" ColumnName="fldInitialBudget" />
+                <ScalarProperty Name="fldTransfers" ColumnName="fldTransfers" />
+                <ScalarProperty Name="fldClientChanges" ColumnName="fldClientChanges" />
+                <ScalarProperty Name="fldUDBTitle1" ColumnName="fldUDBTitle1" />
+                <ScalarProperty Name="fldUDBTitle2" ColumnName="fldUDBTitle2" />
+                <ScalarProperty Name="fldUDBTitle3" ColumnName="fldUDBTitle3" />
+                <ScalarProperty Name="fldUDBTitle4" ColumnName="fldUDBTitle4" />
+                <ScalarProperty Name="clcCurrentBudget" ColumnName="clcCurrentBudget" />
+                <ScalarProperty Name="fldAcceptedTenders" ColumnName="fldAcceptedTenders" />
+                <ScalarProperty Name="fldOrdersYetToPlace" ColumnName="fldOrdersYetToPlace" />
+                <ScalarProperty Name="fldCostVariations" ColumnName="fldCostVariations" />
+                <ScalarProperty Name="fldUDETitle1" ColumnName="fldUDETitle1" />
+                <ScalarProperty Name="fldUDETitle2" ColumnName="fldUDETitle2" />
+                <ScalarProperty Name="fldUDETitle3" ColumnName="fldUDETitle3" />
+                <ScalarProperty Name="fldUDETitle4" ColumnName="fldUDETitle4" />
+                <ScalarProperty Name="clcEstimatedFinalCost" ColumnName="clcEstimatedFinalCost" />
+                <ScalarProperty Name="fldContingency" ColumnName="fldContingency" />
+                <ScalarProperty Name="fldAnticipatedChanges" ColumnName="fldAnticipatedChanges" />
+                <ScalarProperty Name="fldAdvanceWarnings" ColumnName="fldAdvanceWarnings" />
+                <ScalarProperty Name="fldUDFTitle1" ColumnName="fldUDFTitle1" />
+                <ScalarProperty Name="fldUDFTitle2" ColumnName="fldUDFTitle2" />
+                <ScalarProperty Name="fldUDFTitle3" ColumnName="fldUDFTitle3" />
+                <ScalarProperty Name="fldUDFTitle4" ColumnName="fldUDFTitle4" />
+                <ScalarProperty Name="clcPotentialOutturnCost" ColumnName="clcPotentialOutturnCost" />
+                <ScalarProperty Name="fldAgreedValue" ColumnName="fldAgreedValue" />
+                <ScalarProperty Name="fldGrossValueCertified" ColumnName="fldGrossValueCertified" />
+                <ScalarProperty Name="fldSpendToDate" ColumnName="fldSpendToDate" />
+                <ScalarProperty Name="fldComments" ColumnName="fldComments" />
+                <ScalarProperty Name="fldClientRef" ColumnName="fldClientRef" />
+                <ScalarProperty Name="fldRef1" ColumnName="fldRef1" />
+                <ScalarProperty Name="fldRef2" ColumnName="fldRef2" />
+                <ScalarProperty Name="fldRef3" ColumnName="fldRef3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMGroupsFormOptionalHeaders">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMGroupsFormOptionalHeader">
+              <MappingFragment StoreEntitySet="tblCMGroupsFormOptionalHeaders">
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldGrpRef1" ColumnName="fldGrpRef1" />
+                <ScalarProperty Name="fldGrpRef1Hidden" ColumnName="fldGrpRef1Hidden" />
+                <ScalarProperty Name="fldGrpRef2" ColumnName="fldGrpRef2" />
+                <ScalarProperty Name="fldGrpRef2Hidden" ColumnName="fldGrpRef2Hidden" />
+                <ScalarProperty Name="fldGrpRef3" ColumnName="fldGrpRef3" />
+                <ScalarProperty Name="fldGrpRef3Hidden" ColumnName="fldGrpRef3Hidden" />
+                <ScalarProperty Name="fldGrpName1" ColumnName="fldGrpName1" />
+                <ScalarProperty Name="fldGrpName1Hidden" ColumnName="fldGrpName1Hidden" />
+                <ScalarProperty Name="fldGrpName2" ColumnName="fldGrpName2" />
+                <ScalarProperty Name="fldGrpName2Hidden" ColumnName="fldGrpName2Hidden" />
+                <ScalarProperty Name="fldGrpParentCode" ColumnName="fldGrpParentCode" />
+                <ScalarProperty Name="fldGrpParentCodeHidden" ColumnName="fldGrpParentCodeHidden" />
+                <ScalarProperty Name="fldGrpParentLabel" ColumnName="fldGrpParentLabel" />
+                <ScalarProperty Name="fldGrpParentLabelHidden" ColumnName="fldGrpParentLabelHidden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMPackagesFormOptionalHeaders">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMPackagesFormOptionalHeader">
+              <MappingFragment StoreEntitySet="tblCMPackagesFormOptionalHeaders">
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldPackRef1" ColumnName="fldPackRef1" />
+                <ScalarProperty Name="fldPackRef1Hidden" ColumnName="fldPackRef1Hidden" />
+                <ScalarProperty Name="fldPackRef2" ColumnName="fldPackRef2" />
+                <ScalarProperty Name="fldPackRef2Hidden" ColumnName="fldPackRef2Hidden" />
+                <ScalarProperty Name="fldPackRef3" ColumnName="fldPackRef3" />
+                <ScalarProperty Name="fldPackRef3Hidden" ColumnName="fldPackRef3Hidden" />
+                <ScalarProperty Name="fldPackName1" ColumnName="fldPackName1" />
+                <ScalarProperty Name="fldPackName1Hidden" ColumnName="fldPackName1Hidden" />
+                <ScalarProperty Name="fldPackName2" ColumnName="fldPackName2" />
+                <ScalarProperty Name="fldPackName2Hidden" ColumnName="fldPackName2Hidden" />
+                <ScalarProperty Name="fldPackName3" ColumnName="fldPackName3" />
+                <ScalarProperty Name="fldPackName3Hidden" ColumnName="fldPackName3Hidden" />
+                <ScalarProperty Name="fldPackName4" ColumnName="fldPackName4" />
+                <ScalarProperty Name="fldPackName4Hidden" ColumnName="fldPackName4Hidden" />
+                <ScalarProperty Name="fldPackName5" ColumnName="fldPackName5" />
+                <ScalarProperty Name="fldPackName5Hidden" ColumnName="fldPackName5Hidden" />
+                <ScalarProperty Name="fldPackName6" ColumnName="fldPackName6" />
+                <ScalarProperty Name="fldPackName6Hidden" ColumnName="fldPackName6Hidden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMProjects">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMProject">
+              <MappingFragment StoreEntitySet="tblCMProjects">
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSChangeDetails">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSChangeDetail">
+              <MappingFragment StoreEntitySet="tblCMSChangeDetails">
+                <ScalarProperty Name="fldChangeDetailID" ColumnName="fldChangeDetailID" />
+                <ScalarProperty Name="fldChangeIndexID" ColumnName="fldChangeIndexID" />
+                <ScalarProperty Name="fldChangeTypeID" ColumnName="fldChangeTypeID" />
+                <ScalarProperty Name="fldChangeFromID" ColumnName="fldChangeFromID" />
+                <ScalarProperty Name="fldChangeToID" ColumnName="fldChangeToID" />
+                <ScalarProperty Name="fldChangeDescription" ColumnName="fldChangeDescription" />
+                <ScalarProperty Name="fldChangeValue" ColumnName="fldChangeValue" />
+                <ScalarProperty Name="fldRecordStatus" ColumnName="fldRecordStatus" />
+                <ScalarProperty Name="fldAgreedValue" ColumnName="fldAgreedValue" />
+                <ScalarProperty Name="fldAgreed" ColumnName="fldAgreed" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldChangeOrder" ColumnName="fldChangeOrder" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldChangeValueA" ColumnName="fldChangeValueA" />
+                <ScalarProperty Name="fldChangeValueB" ColumnName="fldChangeValueB" />
+                <ScalarProperty Name="fldChangeValueFlagA" ColumnName="fldChangeValueFlagA" />
+                <ScalarProperty Name="fldChangeValueFlagB" ColumnName="fldChangeValueFlagB" />
+                <ScalarProperty Name="fldComments" ColumnName="fldComments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSChangeIndexes">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSChangeIndex">
+              <MappingFragment StoreEntitySet="tblCMSChangeIndex">
+                <ScalarProperty Name="fldChangeUniqueID" ColumnName="fldChangeUniqueID" />
+                <ScalarProperty Name="fldGroupPackageID" ColumnName="fldGroupPackageID" />
+                <ScalarProperty Name="fldChangeIDinGroupPackage" ColumnName="fldChangeIDinGroupPackage" />
+                <ScalarProperty Name="fldDescription" ColumnName="fldDescription" />
+                <ScalarProperty Name="fldFullChangeTypeString" ColumnName="fldFullChangeTypeString" />
+                <ScalarProperty Name="fldDisciplineID" ColumnName="fldDisciplineID" />
+                <ScalarProperty Name="fldStatusID" ColumnName="fldStatusID" />
+                <ScalarProperty Name="fldDate" ColumnName="fldDate" />
+                <ScalarProperty Name="fldPeriodEnteredID" ColumnName="fldPeriodEnteredID" />
+                <ScalarProperty Name="fldPeriodAuthorisedID" ColumnName="fldPeriodAuthorisedID" />
+                <ScalarProperty Name="fldAIDate" ColumnName="fldAIDate" />
+                <ScalarProperty Name="fldAINo" ColumnName="fldAINo" />
+                <ScalarProperty Name="fldInfoFrom" ColumnName="fldInfoFrom" />
+                <ScalarProperty Name="fldActionComment" ColumnName="fldActionComment" />
+                <ScalarProperty Name="fldSource" ColumnName="fldSource" />
+                <ScalarProperty Name="fldFullFromString" ColumnName="fldFullFromString" />
+                <ScalarProperty Name="fldFullToString" ColumnName="fldFullToString" />
+                <ScalarProperty Name="fldFullValueAmount" ColumnName="fldFullValueAmount" />
+                <ScalarProperty Name="fldRecordStatus" ColumnName="fldRecordStatus" />
+                <ScalarProperty Name="fldLocked" ColumnName="fldLocked" />
+                <ScalarProperty Name="fldAdd1Value" ColumnName="fldAdd1Value" />
+                <ScalarProperty Name="fldAdd2Value" ColumnName="fldAdd2Value" />
+                <ScalarProperty Name="fldAdd3Value" ColumnName="fldAdd3Value" />
+                <ScalarProperty Name="fldAdd4Value" ColumnName="fldAdd4Value" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSChangeStatus">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSChangeStatu">
+              <MappingFragment StoreEntitySet="tblCMSChangeStatus">
+                <ScalarProperty Name="fldStatusID" ColumnName="fldStatusID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldSystemDefaultStatus" ColumnName="fldSystemDefaultStatus" />
+                <ScalarProperty Name="fldStatusCode" ColumnName="fldStatusCode" />
+                <ScalarProperty Name="fldStatusDescription" ColumnName="fldStatusDescription" />
+                <ScalarProperty Name="fldStatusTrafficLightTypeID" ColumnName="fldStatusTrafficLightTypeID" />
+                <ScalarProperty Name="fldRecordStatus" ColumnName="fldRecordStatus" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldTrafficLightColour" ColumnName="fldTrafficLightColour" />
+                <ScalarProperty Name="fldChangeCommentary" ColumnName="fldChangeCommentary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSChangeTypes">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSChangeType">
+              <MappingFragment StoreEntitySet="tblCMSChangeTypes">
+                <ScalarProperty Name="fldChangeTypeID" ColumnName="fldChangeTypeID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldChangeCode" ColumnName="fldChangeCode" />
+                <ScalarProperty Name="fldChangeDescription" ColumnName="fldChangeDescription" />
+                <ScalarProperty Name="fldFromBucketString" ColumnName="fldFromBucketString" />
+                <ScalarProperty Name="fldToBucketString" ColumnName="fldToBucketString" />
+                <ScalarProperty Name="fldPredefinedYesNo" ColumnName="fldPredefinedYesNo" />
+                <ScalarProperty Name="fldFullDescription" ColumnName="fldFullDescription" />
+                <ScalarProperty Name="fldRecordStatus" ColumnName="fldRecordStatus" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldChangeCommentary" ColumnName="fldChangeCommentary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSContractReportingPeriods">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSContractReportingPeriod">
+              <MappingFragment StoreEntitySet="tblCMSContractReportingPeriods">
+                <ScalarProperty Name="fldPeriodID" ColumnName="fldPeriodID" />
+                <ScalarProperty Name="fldGroupPackageID" ColumnName="fldGroupPackageID" />
+                <ScalarProperty Name="fldRowOrderID" ColumnName="fldRowOrderID" />
+                <ScalarProperty Name="fldPeriodDescription" ColumnName="fldPeriodDescription" />
+                <ScalarProperty Name="fldPlannedPeriodStartDate" ColumnName="fldPlannedPeriodStartDate" />
+                <ScalarProperty Name="fldPlannedPeriodCompletionDate" ColumnName="fldPlannedPeriodCompletionDate" />
+                <ScalarProperty Name="fldActualPeriodStartDate" ColumnName="fldActualPeriodStartDate" />
+                <ScalarProperty Name="fldActualPeriodCompletionDate" ColumnName="fldActualPeriodCompletionDate" />
+                <ScalarProperty Name="fldFirstChangeNumber" ColumnName="fldFirstChangeNumber" />
+                <ScalarProperty Name="fldDateofChange" ColumnName="fldDateofChange" />
+                <ScalarProperty Name="fldRecordStatus" ColumnName="fldRecordStatus" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldReportDate" ColumnName="fldReportDate" />
+                <ScalarProperty Name="fldReportNumber" ColumnName="fldReportNumber" />
+                <ScalarProperty Name="fldContractID" ColumnName="fldContractID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSContracts">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSContract">
+              <MappingFragment StoreEntitySet="tblCMSContracts">
+                <ScalarProperty Name="fldContractID" ColumnName="fldContractID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldContractName" ColumnName="fldContractName" />
+                <ScalarProperty Name="fldContractDescription" ColumnName="fldContractDescription" />
+                <ScalarProperty Name="fldRowOrderID" ColumnName="fldRowOrderID" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldComments" ColumnName="fldComments" />
+                <ScalarProperty Name="fldClassificationID" ColumnName="fldClassificationID" />
+                <ScalarProperty Name="fldElementClassName" ColumnName="fldElementClassName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSDisciplines">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSDiscipline">
+              <MappingFragment StoreEntitySet="tblCMSDisciplines">
+                <ScalarProperty Name="fldDisciplineID" ColumnName="fldDisciplineID" />
+                <ScalarProperty Name="fldSystemDefaultDiscipline" ColumnName="fldSystemDefaultDiscipline" />
+                <ScalarProperty Name="fldDisciplineCode" ColumnName="fldDisciplineCode" />
+                <ScalarProperty Name="fldDisciplineDescription" ColumnName="fldDisciplineDescription" />
+                <ScalarProperty Name="fldGroupPackageID" ColumnName="fldGroupPackageID" />
+                <ScalarProperty Name="fldRecordStatus" ColumnName="fldRecordStatus" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSGroupPackages">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSGroupPackage">
+              <MappingFragment StoreEntitySet="tblCMSGroupPackages">
+                <ScalarProperty Name="fldGroupPackageID" ColumnName="fldGroupPackageID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldContractID" ColumnName="fldContractID" />
+                <ScalarProperty Name="fldGroupPackageName" ColumnName="fldGroupPackageName" />
+                <ScalarProperty Name="fldGroupPackageDescription" ColumnName="fldGroupPackageDescription" />
+                <ScalarProperty Name="fldPreDefinedYesNo" ColumnName="fldPreDefinedYesNo" />
+                <ScalarProperty Name="fldInitialBudgetDate" ColumnName="fldInitialBudgetDate" />
+                <ScalarProperty Name="fldGrossInterimValuationDate" ColumnName="fldGrossInterimValuationDate" />
+                <ScalarProperty Name="fldContractCommencementDate" ColumnName="fldContractCommencementDate" />
+                <ScalarProperty Name="fldContractCompletionDate" ColumnName="fldContractCompletionDate" />
+                <ScalarProperty Name="fldExtendedContractCompletionDate" ColumnName="fldExtendedContractCompletionDate" />
+                <ScalarProperty Name="fldContractBudget" ColumnName="fldContractBudget" />
+                <ScalarProperty Name="fldContractVAT" ColumnName="fldContractVAT" />
+                <ScalarProperty Name="fldContractNotes" ColumnName="fldContractNotes" />
+                <ScalarProperty Name="fldPreviousAdvanceWarnings" ColumnName="fldPreviousAdvanceWarnings" />
+                <ScalarProperty Name="fldPreviousUnapprovedEstimates" ColumnName="fldPreviousUnapprovedEstimates" />
+                <ScalarProperty Name="fldPreviousUnapprovedClaims" ColumnName="fldPreviousUnapprovedClaims" />
+                <ScalarProperty Name="fldAdd1Label" ColumnName="fldAdd1Label" />
+                <ScalarProperty Name="fldAdd1Type" ColumnName="fldAdd1Type" />
+                <ScalarProperty Name="fldAdd2Label" ColumnName="fldAdd2Label" />
+                <ScalarProperty Name="fldAdd2Type" ColumnName="fldAdd2Type" />
+                <ScalarProperty Name="fldAdd3Label" ColumnName="fldAdd3Label" />
+                <ScalarProperty Name="fldAdd3Type" ColumnName="fldAdd3Type" />
+                <ScalarProperty Name="fldAdd4Label" ColumnName="fldAdd4Label" />
+                <ScalarProperty Name="fldAdd4Type" ColumnName="fldAdd4Type" />
+                <ScalarProperty Name="fldAINUMLabel" ColumnName="fldAINUMLabel" />
+                <ScalarProperty Name="fldCurrentReportingPeriodID" ColumnName="fldCurrentReportingPeriodID" />
+                <ScalarProperty Name="fldCurrentValuationGroupID" ColumnName="fldCurrentValuationGroupID" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldActiveReportToPrint" ColumnName="fldActiveReportToPrint" />
+                <ScalarProperty Name="fldIsTotal" ColumnName="fldIsTotal" />
+                <ScalarProperty Name="fldPreviousTotal" ColumnName="fldPreviousTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSGroups">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSGroup">
+              <MappingFragment StoreEntitySet="tblCMSGroups">
+                <ScalarProperty Name="fldGroupID" ColumnName="fldGroupID" />
+                <ScalarProperty Name="fldGroupPackageID" ColumnName="fldGroupPackageID" />
+                <ScalarProperty Name="fldGroupCode" ColumnName="fldGroupCode" />
+                <ScalarProperty Name="fldGroupLabel" ColumnName="fldGroupLabel" />
+                <ScalarProperty Name="fldSequenceNumber" ColumnName="fldSequenceNumber" />
+                <ScalarProperty Name="fldClientRef" ColumnName="fldClientRef" />
+                <ScalarProperty Name="fldTotalIndicator" ColumnName="fldTotalIndicator" />
+                <ScalarProperty Name="fldDeleted" ColumnName="fldDeleted" />
+                <ScalarProperty Name="fldInitialBudget" ColumnName="fldInitialBudget" />
+                <ScalarProperty Name="fldTransfers" ColumnName="fldTransfers" />
+                <ScalarProperty Name="fldClientChanges" ColumnName="fldClientChanges" />
+                <ScalarProperty Name="fldCurrentBudget" ColumnName="fldCurrentBudget" />
+                <ScalarProperty Name="fldPreviousBudget" ColumnName="fldPreviousBudget" />
+                <ScalarProperty Name="fldAcceptedTenders" ColumnName="fldAcceptedTenders" />
+                <ScalarProperty Name="fldOrdersYetToPlace" ColumnName="fldOrdersYetToPlace" />
+                <ScalarProperty Name="fldCostVariations" ColumnName="fldCostVariations" />
+                <ScalarProperty Name="fldEstimatedFinalCost" ColumnName="fldEstimatedFinalCost" />
+                <ScalarProperty Name="fldPreviousForecast" ColumnName="fldPreviousForecast" />
+                <ScalarProperty Name="fldGrossValueCertified" ColumnName="fldGrossValueCertified" />
+                <ScalarProperty Name="fldContingency" ColumnName="fldContingency" />
+                <ScalarProperty Name="fldAnticipatedChanges" ColumnName="fldAnticipatedChanges" />
+                <ScalarProperty Name="fldAdvanceWarnings" ColumnName="fldAdvanceWarnings" />
+                <ScalarProperty Name="fldDefinedinCatoCP" ColumnName="fldDefinedinCatoCP" />
+                <ScalarProperty Name="fldPotentialOutturnCosts" ColumnName="fldPotentialOutturnCosts" />
+                <ScalarProperty Name="fldAgreedValue" ColumnName="fldAgreedValue" />
+                <ScalarProperty Name="fldPreviousPotentialOutturnCosts" ColumnName="fldPreviousPotentialOutturnCosts" />
+                <ScalarProperty Name="fldPreviousAgreedValue" ColumnName="fldPreviousAgreedValue" />
+                <ScalarProperty Name="fldRowOrderId" ColumnName="fldRowOrderId" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldUnallocatedIndicator" ColumnName="fldUnallocatedIndicator" />
+                <ScalarProperty Name="fldRetained" ColumnName="fldRetained" />
+                <ScalarProperty Name="fldWithheld" ColumnName="fldWithheld" />
+                <ScalarProperty Name="fldLastChangeOrder" ColumnName="fldLastChangeOrder" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldSpendToDate" ColumnName="fldSpendToDate" />
+                <ScalarProperty Name="fldPreviousGrossCertified" ColumnName="fldPreviousGrossCertified" />
+                <ScalarProperty Name="fldPreviousTotalNet" ColumnName="fldPreviousTotalNet" />
+                <ScalarProperty Name="fldUDBudget1" ColumnName="fldUDBudget1" />
+                <ScalarProperty Name="fldUDForecast1" ColumnName="fldUDForecast1" />
+                <ScalarProperty Name="fldUDExpenditure1" ColumnName="fldUDExpenditure1" />
+                <ScalarProperty Name="fldUDBudget2" ColumnName="fldUDBudget2" />
+                <ScalarProperty Name="fldUDForecast2" ColumnName="fldUDForecast2" />
+                <ScalarProperty Name="fldUDExpenditure2" ColumnName="fldUDExpenditure2" />
+                <ScalarProperty Name="fldUDBudget3" ColumnName="fldUDBudget3" />
+                <ScalarProperty Name="fldUDForecast3" ColumnName="fldUDForecast3" />
+                <ScalarProperty Name="fldUDExpenditure3" ColumnName="fldUDExpenditure3" />
+                <ScalarProperty Name="fldUDBudget4" ColumnName="fldUDBudget4" />
+                <ScalarProperty Name="fldUDForecast4" ColumnName="fldUDForecast4" />
+                <ScalarProperty Name="fldUDExpenditure4" ColumnName="fldUDExpenditure4" />
+                <ScalarProperty Name="fldComments" ColumnName="fldComments" />
+                <ScalarProperty Name="fldRef1" ColumnName="fldRef1" />
+                <ScalarProperty Name="fldRef2" ColumnName="fldRef2" />
+                <ScalarProperty Name="fldRef3" ColumnName="fldRef3" />
+                <ScalarProperty Name="fldParentCode" ColumnName="fldParentCode" />
+                <ScalarProperty Name="fldParentLabel" ColumnName="fldParentLabel" />
+                <ScalarProperty Name="fldName1" ColumnName="fldName1" />
+                <ScalarProperty Name="fldName2" ColumnName="fldName2" />
+                <ScalarProperty Name="fldPreviousAcceptedTenders" ColumnName="fldPreviousAcceptedTenders" />
+                <ScalarProperty Name="fldPreviousSpendToDate" ColumnName="fldPreviousSpendToDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSPackages">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSPackage">
+              <MappingFragment StoreEntitySet="tblCMSPackages">
+                <ScalarProperty Name="fldPackageID" ColumnName="fldPackageID" />
+                <ScalarProperty Name="fldGroupPackageID" ColumnName="fldGroupPackageID" />
+                <ScalarProperty Name="fldGroupID" ColumnName="fldGroupID" />
+                <ScalarProperty Name="fldPackageCode" ColumnName="fldPackageCode" />
+                <ScalarProperty Name="fldPackageLabel" ColumnName="fldPackageLabel" />
+                <ScalarProperty Name="fldSequenceNumber" ColumnName="fldSequenceNumber" />
+                <ScalarProperty Name="fldClientRef" ColumnName="fldClientRef" />
+                <ScalarProperty Name="fldTotalIndicator" ColumnName="fldTotalIndicator" />
+                <ScalarProperty Name="fldDeleted" ColumnName="fldDeleted" />
+                <ScalarProperty Name="fldInitialBudget" ColumnName="fldInitialBudget" />
+                <ScalarProperty Name="fldInitialBudgetLocked" ColumnName="fldInitialBudgetLocked" />
+                <ScalarProperty Name="fldTransfers" ColumnName="fldTransfers" />
+                <ScalarProperty Name="fldClientChanges" ColumnName="fldClientChanges" />
+                <ScalarProperty Name="fldCurrentBudget" ColumnName="fldCurrentBudget" />
+                <ScalarProperty Name="fldPreviousBudget" ColumnName="fldPreviousBudget" />
+                <ScalarProperty Name="fldAcceptedTenders" ColumnName="fldAcceptedTenders" />
+                <ScalarProperty Name="fldOrdersYetToPlace" ColumnName="fldOrdersYetToPlace" />
+                <ScalarProperty Name="fldCostVariations" ColumnName="fldCostVariations" />
+                <ScalarProperty Name="fldEstimatedFinalCost" ColumnName="fldEstimatedFinalCost" />
+                <ScalarProperty Name="fldPreviousForecast" ColumnName="fldPreviousForecast" />
+                <ScalarProperty Name="fldGrossValueCertified" ColumnName="fldGrossValueCertified" />
+                <ScalarProperty Name="fldContingency" ColumnName="fldContingency" />
+                <ScalarProperty Name="fldAnticipatedChanges" ColumnName="fldAnticipatedChanges" />
+                <ScalarProperty Name="fldAdvanceWarnings" ColumnName="fldAdvanceWarnings" />
+                <ScalarProperty Name="fldDefinedinCatoCP" ColumnName="fldDefinedinCatoCP" />
+                <ScalarProperty Name="fldPotentialOutturnCosts" ColumnName="fldPotentialOutturnCosts" />
+                <ScalarProperty Name="fldAgreedValue" ColumnName="fldAgreedValue" />
+                <ScalarProperty Name="fldPreviousPotentialOutturnCosts" ColumnName="fldPreviousPotentialOutturnCosts" />
+                <ScalarProperty Name="fldPreviousAgreedValue" ColumnName="fldPreviousAgreedValue" />
+                <ScalarProperty Name="fldRowOrderId" ColumnName="fldRowOrderId" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldRetained" ColumnName="fldRetained" />
+                <ScalarProperty Name="fldWithheld" ColumnName="fldWithheld" />
+                <ScalarProperty Name="fldLastChangeOrder" ColumnName="fldLastChangeOrder" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldSpendToDate" ColumnName="fldSpendToDate" />
+                <ScalarProperty Name="fldPreviousGrossCertified" ColumnName="fldPreviousGrossCertified" />
+                <ScalarProperty Name="fldPreviousTotalNet" ColumnName="fldPreviousTotalNet" />
+                <ScalarProperty Name="fldUDBudget1" ColumnName="fldUDBudget1" />
+                <ScalarProperty Name="fldUDForecast1" ColumnName="fldUDForecast1" />
+                <ScalarProperty Name="fldUDExpenditure1" ColumnName="fldUDExpenditure1" />
+                <ScalarProperty Name="fldUDBudget2" ColumnName="fldUDBudget2" />
+                <ScalarProperty Name="fldUDForecast2" ColumnName="fldUDForecast2" />
+                <ScalarProperty Name="fldUDExpenditure2" ColumnName="fldUDExpenditure2" />
+                <ScalarProperty Name="fldUDBudget3" ColumnName="fldUDBudget3" />
+                <ScalarProperty Name="fldUDForecast3" ColumnName="fldUDForecast3" />
+                <ScalarProperty Name="fldUDExpenditure3" ColumnName="fldUDExpenditure3" />
+                <ScalarProperty Name="fldUDBudget4" ColumnName="fldUDBudget4" />
+                <ScalarProperty Name="fldUDForecast4" ColumnName="fldUDForecast4" />
+                <ScalarProperty Name="fldUDExpenditure4" ColumnName="fldUDExpenditure4" />
+                <ScalarProperty Name="fldContractor" ColumnName="fldContractor" />
+                <ScalarProperty Name="fldComments" ColumnName="fldComments" />
+                <ScalarProperty Name="fldThreshold1" ColumnName="fldThreshold1" />
+                <ScalarProperty Name="fldThreshold2" ColumnName="fldThreshold2" />
+                <ScalarProperty Name="fldPackageLead" ColumnName="fldPackageLead" />
+                <ScalarProperty Name="fldName3" ColumnName="fldName3" />
+                <ScalarProperty Name="fldName4" ColumnName="fldName4" />
+                <ScalarProperty Name="fldName5" ColumnName="fldName5" />
+                <ScalarProperty Name="fldRef1" ColumnName="fldRef1" />
+                <ScalarProperty Name="fldRef2" ColumnName="fldRef2" />
+                <ScalarProperty Name="fldRef3" ColumnName="fldRef3" />
+                <ScalarProperty Name="fldPreviousAcceptedTenders" ColumnName="fldPreviousAcceptedTenders" />
+                <ScalarProperty Name="fldPreviousSpendToDate" ColumnName="fldPreviousSpendToDate" />
+                <ScalarProperty Name="fldName6" ColumnName="fldName6" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSProjectReportExclusions">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSProjectReportExclusion">
+              <MappingFragment StoreEntitySet="tblCMSProjectReportExclusions">
+                <ScalarProperty Name="fldExclusionID" ColumnName="fldExclusionID" />
+                <ScalarProperty Name="fldProjectID" ColumnName="fldProjectID" />
+                <ScalarProperty Name="fldOrderinProject" ColumnName="fldOrderinProject" />
+                <ScalarProperty Name="fldExclusionMemo" ColumnName="fldExclusionMemo" />
+                <ScalarProperty Name="fldRecordStatus" ColumnName="fldRecordStatus" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSProjects">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSProject">
+              <MappingFragment StoreEntitySet="tblCMSProjects">
+                <ScalarProperty Name="fldProjectID" ColumnName="fldProjectID" />
+                <ScalarProperty Name="fldProjectName" ColumnName="fldProjectName" />
+                <ScalarProperty Name="fldProjectDescription" ColumnName="fldProjectDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSReportPeriods">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSReportPeriod">
+              <MappingFragment StoreEntitySet="tblCMSReportPeriods">
+                <ScalarProperty Name="fldPeriodID" ColumnName="fldPeriodID" />
+                <ScalarProperty Name="fldGroupPackageID" ColumnName="fldGroupPackageID" />
+                <ScalarProperty Name="fldCurrentReportingPeriod" ColumnName="fldCurrentReportingPeriod" />
+                <ScalarProperty Name="fldDateofChange" ColumnName="fldDateofChange" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSTrafficLights">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSTrafficLight">
+              <MappingFragment StoreEntitySet="tblCMSTrafficLights">
+                <ScalarProperty Name="fldTrafficLightID" ColumnName="fldTrafficLightID" />
+                <ScalarProperty Name="fldProjectID" ColumnName="fldProjectID" />
+                <ScalarProperty Name="fldTypeID" ColumnName="fldTypeID" />
+                <ScalarProperty Name="fldDescription" ColumnName="fldDescription" />
+                <ScalarProperty Name="fldQBColorValue" ColumnName="fldQBColorValue" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSUserDefineFields">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSUserDefineField">
+              <MappingFragment StoreEntitySet="tblCMSUserDefineFields">
+                <ScalarProperty Name="fldUDFieldID" ColumnName="fldUDFieldID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldUDBUsed1" ColumnName="fldUDBUsed1" />
+                <ScalarProperty Name="fldUDBTitle1" ColumnName="fldUDBTitle1" />
+                <ScalarProperty Name="fldUDFUsed1" ColumnName="fldUDFUsed1" />
+                <ScalarProperty Name="fldUDFTitle1" ColumnName="fldUDFTitle1" />
+                <ScalarProperty Name="fldUDEUsed1" ColumnName="fldUDEUsed1" />
+                <ScalarProperty Name="fldUDETitle1" ColumnName="fldUDETitle1" />
+                <ScalarProperty Name="fldUDBUsed2" ColumnName="fldUDBUsed2" />
+                <ScalarProperty Name="fldUDBTitle2" ColumnName="fldUDBTitle2" />
+                <ScalarProperty Name="fldUDFUsed2" ColumnName="fldUDFUsed2" />
+                <ScalarProperty Name="fldUDFTitle2" ColumnName="fldUDFTitle2" />
+                <ScalarProperty Name="fldUDEUsed2" ColumnName="fldUDEUsed2" />
+                <ScalarProperty Name="fldUDETitle2" ColumnName="fldUDETitle2" />
+                <ScalarProperty Name="fldUDBUsed3" ColumnName="fldUDBUsed3" />
+                <ScalarProperty Name="fldUDBTitle3" ColumnName="fldUDBTitle3" />
+                <ScalarProperty Name="fldUDFUsed3" ColumnName="fldUDFUsed3" />
+                <ScalarProperty Name="fldUDFTitle3" ColumnName="fldUDFTitle3" />
+                <ScalarProperty Name="fldUDEUsed3" ColumnName="fldUDEUsed3" />
+                <ScalarProperty Name="fldUDETitle3" ColumnName="fldUDETitle3" />
+                <ScalarProperty Name="fldUDBUsed4" ColumnName="fldUDBUsed4" />
+                <ScalarProperty Name="fldUDBTitle4" ColumnName="fldUDBTitle4" />
+                <ScalarProperty Name="fldUDFUsed4" ColumnName="fldUDFUsed4" />
+                <ScalarProperty Name="fldUDFTitle4" ColumnName="fldUDFTitle4" />
+                <ScalarProperty Name="fldUDEUsed4" ColumnName="fldUDEUsed4" />
+                <ScalarProperty Name="fldUDETitle4" ColumnName="fldUDETitle4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSValuationGroups">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSValuationGroup">
+              <MappingFragment StoreEntitySet="tblCMSValuationGroups">
+                <ScalarProperty Name="fldValuationGroupID" ColumnName="fldValuationGroupID" />
+                <ScalarProperty Name="fldValuationDate" ColumnName="fldValuationDate" />
+                <ScalarProperty Name="fldGroupPackageID" ColumnName="fldGroupPackageID" />
+                <ScalarProperty Name="fldDescription" ColumnName="fldDescription" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCMSValuations">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCMSValuation">
+              <MappingFragment StoreEntitySet="tblCMSValuations">
+                <ScalarProperty Name="fldValuationID" ColumnName="fldValuationID" />
+                <ScalarProperty Name="fldValuationGroupID" ColumnName="fldValuationGroupID" />
+                <ScalarProperty Name="fldPackageID" ColumnName="fldPackageID" />
+                <ScalarProperty Name="fldGrossCertifiedValue" ColumnName="fldGrossCertifiedValue" />
+                <ScalarProperty Name="fldPercentofEFC" ColumnName="fldPercentofEFC" />
+                <ScalarProperty Name="fldRetained" ColumnName="fldRetained" />
+                <ScalarProperty Name="fldWithheld" ColumnName="fldWithheld" />
+                <ScalarProperty Name="fldTotalNet" ColumnName="fldTotalNet" />
+                <ScalarProperty Name="fldRecordStatus" ColumnName="fldRecordStatus" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldRetainedPercent" ColumnName="fldRetainedPercent" />
+                <ScalarProperty Name="fldValueOffSite" ColumnName="fldValueOffSite" />
+                <ScalarProperty Name="fldGrossToDate" ColumnName="fldGrossToDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPhraseCommentaryDatas">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblPhraseCommentaryData">
+              <MappingFragment StoreEntitySet="tblPhraseCommentaryData">
+                <ScalarProperty Name="fldPhraseID" ColumnName="fldPhraseID" />
+                <ScalarProperty Name="fldProductID" ColumnName="fldProductID" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldDescription" ColumnName="fldDescription" />
+                <ScalarProperty Name="fldPhraseData" ColumnName="fldPhraseData" />
+                <ScalarProperty Name="fldPhraseDataRTF" ColumnName="fldPhraseDataRTF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblReportGenerics">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblReportGeneric">
+              <MappingFragment StoreEntitySet="tblReportGeneric">
+                <ScalarProperty Name="fldReportGenericGuid" ColumnName="fldReportGenericGuid" />
+                <ScalarProperty Name="fldProductProjectID" ColumnName="fldProductProjectID" />
+                <ScalarProperty Name="fldReportFormatID" ColumnName="fldReportFormatID" />
+                <ScalarProperty Name="fldReportTitle" ColumnName="fldReportTitle" />
+                <ScalarProperty Name="fldReportRTFData" ColumnName="fldReportRTFData" />
+                <ScalarProperty Name="fldOwnerType" ColumnName="fldOwnerType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblXEvents">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblXEvent">
+              <MappingFragment StoreEntitySet="tblXEvent">
+                <ScalarProperty Name="fldKeepMSSQLHappyID" ColumnName="fldKeepMSSQLHappyID" />
+                <ScalarProperty Name="fldID1" ColumnName="fldID1" />
+                <ScalarProperty Name="fldEventID" ColumnName="fldEventID" />
+                <ScalarProperty Name="fldEventParams" ColumnName="fldEventParams" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="dt_addtosourcecontrol" FunctionName="eclCatoCMModel.Store.dt_addtosourcecontrol" />
+          <FunctionImportMapping FunctionImportName="dt_addtosourcecontrol_u" FunctionName="eclCatoCMModel.Store.dt_addtosourcecontrol_u" />
+          <FunctionImportMapping FunctionImportName="dt_adduserobject" FunctionName="eclCatoCMModel.Store.dt_adduserobject" />
+          <FunctionImportMapping FunctionImportName="dt_adduserobject_vcs" FunctionName="eclCatoCMModel.Store.dt_adduserobject_vcs" />
+          <FunctionImportMapping FunctionImportName="dt_checkinobject" FunctionName="eclCatoCMModel.Store.dt_checkinobject" />
+          <FunctionImportMapping FunctionImportName="dt_checkinobject_u" FunctionName="eclCatoCMModel.Store.dt_checkinobject_u" />
+          <FunctionImportMapping FunctionImportName="dt_checkoutobject" FunctionName="eclCatoCMModel.Store.dt_checkoutobject" />
+          <FunctionImportMapping FunctionImportName="dt_checkoutobject_u" FunctionName="eclCatoCMModel.Store.dt_checkoutobject_u" />
+          <FunctionImportMapping FunctionImportName="dt_displayoaerror" FunctionName="eclCatoCMModel.Store.dt_displayoaerror" />
+          <FunctionImportMapping FunctionImportName="dt_displayoaerror_u" FunctionName="eclCatoCMModel.Store.dt_displayoaerror_u" />
+          <FunctionImportMapping FunctionImportName="dt_droppropertiesbyid" FunctionName="eclCatoCMModel.Store.dt_droppropertiesbyid" />
+          <FunctionImportMapping FunctionImportName="dt_dropuserobjectbyid" FunctionName="eclCatoCMModel.Store.dt_dropuserobjectbyid" />
+          <FunctionImportMapping FunctionImportName="dt_generateansiname" FunctionName="eclCatoCMModel.Store.dt_generateansiname" />
+          <FunctionImportMapping FunctionImportName="dt_getobjwithprop" FunctionName="eclCatoCMModel.Store.dt_getobjwithprop" />
+          <FunctionImportMapping FunctionImportName="dt_getobjwithprop_u" FunctionName="eclCatoCMModel.Store.dt_getobjwithprop_u" />
+          <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid" FunctionName="eclCatoCMModel.Store.dt_getpropertiesbyid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eclCatoCMModel.dt_getpropertiesbyid_Result">
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_u" FunctionName="eclCatoCMModel.Store.dt_getpropertiesbyid_u">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eclCatoCMModel.dt_getpropertiesbyid_u_Result">
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+                <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_vcs" FunctionName="eclCatoCMModel.Store.dt_getpropertiesbyid_vcs" />
+          <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_vcs_u" FunctionName="eclCatoCMModel.Store.dt_getpropertiesbyid_vcs_u" />
+          <FunctionImportMapping FunctionImportName="dt_isundersourcecontrol" FunctionName="eclCatoCMModel.Store.dt_isundersourcecontrol" />
+          <FunctionImportMapping FunctionImportName="dt_isundersourcecontrol_u" FunctionName="eclCatoCMModel.Store.dt_isundersourcecontrol_u" />
+          <FunctionImportMapping FunctionImportName="dt_removefromsourcecontrol" FunctionName="eclCatoCMModel.Store.dt_removefromsourcecontrol" />
+          <FunctionImportMapping FunctionImportName="dt_setpropertybyid" FunctionName="eclCatoCMModel.Store.dt_setpropertybyid" />
+          <FunctionImportMapping FunctionImportName="dt_setpropertybyid_u" FunctionName="eclCatoCMModel.Store.dt_setpropertybyid_u" />
+          <FunctionImportMapping FunctionImportName="dt_validateloginparams" FunctionName="eclCatoCMModel.Store.dt_validateloginparams" />
+          <FunctionImportMapping FunctionImportName="dt_validateloginparams_u" FunctionName="eclCatoCMModel.Store.dt_validateloginparams_u" />
+          <FunctionImportMapping FunctionImportName="dt_vcsenabled" FunctionName="eclCatoCMModel.Store.dt_vcsenabled" />
+          <FunctionImportMapping FunctionImportName="dt_verstamp006" FunctionName="eclCatoCMModel.Store.dt_verstamp006" />
+          <FunctionImportMapping FunctionImportName="dt_verstamp007" FunctionName="eclCatoCMModel.Store.dt_verstamp007" />
+          <FunctionImportMapping FunctionImportName="dt_whocheckedout" FunctionName="eclCatoCMModel.Store.dt_whocheckedout" />
+          <FunctionImportMapping FunctionImportName="dt_whocheckedout_u" FunctionName="eclCatoCMModel.Store.dt_whocheckedout_u" />
+          <EntitySetMapping Name="tblCatoCMProjects">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblCatoCMProject">
+              <MappingFragment StoreEntitySet="tblCatoCMProject">
+                <ScalarProperty Name="fldMigrated" ColumnName="fldMigrated" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldReadOnly" ColumnName="fldReadOnly" />
+                <ScalarProperty Name="fldUserID" ColumnName="fldUserID" />
+                <ScalarProperty Name="fldStatus" ColumnName="fldStatus" />
+                <ScalarProperty Name="fldLockedBy" ColumnName="fldLockedBy" />
+                <ScalarProperty Name="fldLocked" ColumnName="fldLocked" />
+                <ScalarProperty Name="fldPermissionRef" ColumnName="fldPermissionRef" />
+                <ScalarProperty Name="fldProjectOfflineOwner" ColumnName="fldProjectOfflineOwner" />
+                <ScalarProperty Name="fldProjectOffline" ColumnName="fldProjectOffline" />
+                <ScalarProperty Name="fldProjectFileName" ColumnName="fldProjectFileName" />
+                <ScalarProperty Name="fldTotalCostRounded" ColumnName="fldTotalCostRounded" />
+                <ScalarProperty Name="fldTotalCost" ColumnName="fldTotalCost" />
+                <ScalarProperty Name="fldLatestRevision" ColumnName="fldLatestRevision" />
+                <ScalarProperty Name="fldLatestVersion" ColumnName="fldLatestVersion" />
+                <ScalarProperty Name="fldRevisionDescription" ColumnName="fldRevisionDescription" />
+                <ScalarProperty Name="fldVersionDescription" ColumnName="fldVersionDescription" />
+                <ScalarProperty Name="fldRevisionID" ColumnName="fldRevisionID" />
+                <ScalarProperty Name="fldVersionID" ColumnName="fldVersionID" />
+                <ScalarProperty Name="fldProjectID" ColumnName="fldProjectID" />
+                <ScalarProperty Name="fldCatoCMProjectID" ColumnName="fldCatoCMProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjects">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblProject">
+              <MappingFragment StoreEntitySet="tblProjects">
+                <ScalarProperty Name="fldISCPTemplate" ColumnName="fldISCPTemplate" />
+                <ScalarProperty Name="fldClientGroup" ColumnName="fldClientGroup" />
+                <ScalarProperty Name="fldClientGroupID" ColumnName="fldClientGroupID" />
+                <ScalarProperty Name="fldClientID" ColumnName="fldClientID" />
+                <ScalarProperty Name="fldClient" ColumnName="fldClient" />
+                <ScalarProperty Name="fldRevisionStageGroupID" ColumnName="fldRevisionStageGroupID" />
+                <ScalarProperty Name="fldRevisionStageID" ColumnName="fldRevisionStageID" />
+                <ScalarProperty Name="fldRevisionStageTitle" ColumnName="fldRevisionStageTitle" />
+                <ScalarProperty Name="fldDefaultReportImageID" ColumnName="fldDefaultReportImageID" />
+                <ScalarProperty Name="fldDefaultProjectImageID" ColumnName="fldDefaultProjectImageID" />
+                <ScalarProperty Name="fldReportDate" ColumnName="fldReportDate" />
+                <ScalarProperty Name="fldProjectTaxRate" ColumnName="fldProjectTaxRate" />
+                <ScalarProperty Name="fldPrimaveraName" ColumnName="fldPrimaveraName" />
+                <ScalarProperty Name="fldPrimaveraParentName" ColumnName="fldPrimaveraParentName" />
+                <ScalarProperty Name="fldActualCompletion" ColumnName="fldActualCompletion" />
+                <ScalarProperty Name="fldPlannedCompletion" ColumnName="fldPlannedCompletion" />
+                <ScalarProperty Name="fldProjectCreatedDate" ColumnName="fldProjectCreatedDate" />
+                <ScalarProperty Name="fldProjectCreatedBy" ColumnName="fldProjectCreatedBy" />
+                <ScalarProperty Name="fldProjectDocFilter" ColumnName="fldProjectDocFilter" />
+                <ScalarProperty Name="fldProjectDocDir" ColumnName="fldProjectDocDir" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldArchived" ColumnName="fldArchived" />
+                <ScalarProperty Name="fldBackup" ColumnName="fldBackup" />
+                <ScalarProperty Name="fldProjectDeleted" ColumnName="fldProjectDeleted" />
+                <ScalarProperty Name="fldProjectExchangeRate" ColumnName="fldProjectExchangeRate" />
+                <ScalarProperty Name="fldProjectCurrencySymbol" ColumnName="fldProjectCurrencySymbol" />
+                <ScalarProperty Name="fldProjectCurrency" ColumnName="fldProjectCurrency" />
+                <ScalarProperty Name="fldProjectDate" ColumnName="fldProjectDate" />
+                <ScalarProperty Name="fldProjectLocationID" ColumnName="fldProjectLocationID" />
+                <ScalarProperty Name="fldProjectClass" ColumnName="fldProjectClass" />
+                <ScalarProperty Name="fldProjectClassDataID" ColumnName="fldProjectClassDataID" />
+                <ScalarProperty Name="fldProjectDescription" ColumnName="fldProjectDescription" />
+                <ScalarProperty Name="fldProjectNo" ColumnName="fldProjectNo" />
+                <ScalarProperty Name="fldProjectTitle" ColumnName="fldProjectTitle" />
+                <ScalarProperty Name="fldSchemeID" ColumnName="fldSchemeID" />
+                <ScalarProperty Name="fldProjectID" ColumnName="fldProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAddresses">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblAddress">
+              <MappingFragment StoreEntitySet="tblAddresses">
+                <ScalarProperty Name="fldLongitude" ColumnName="fldLongitude" />
+                <ScalarProperty Name="fldLatitude" ColumnName="fldLatitude" />
+                <ScalarProperty Name="fldCounty" ColumnName="fldCounty" />
+                <ScalarProperty Name="fldCity" ColumnName="fldCity" />
+                <ScalarProperty Name="fldAddress1" ColumnName="fldAddress1" />
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldCountryID" ColumnName="fldCountryID" />
+                <ScalarProperty Name="fldPostCode" ColumnName="fldPostCode" />
+                <ScalarProperty Name="fldAddress" ColumnName="fldAddress" />
+                <ScalarProperty Name="fldAddressID" ColumnName="fldAddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDefaultCMProperties">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblDefaultCMProperty">
+              <MappingFragment StoreEntitySet="tblDefaultCMProperties">
+                <ScalarProperty Name="fldPropertyValue" ColumnName="fldPropertyValue" />
+                <ScalarProperty Name="fldPropertyIndex" ColumnName="fldPropertyIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjectImages">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblProjectImage">
+              <MappingFragment StoreEntitySet="tblProjectImages">
+                <ScalarProperty Name="fldReportDefault" ColumnName="fldReportDefault" />
+                <ScalarProperty Name="fldProjectDefault" ColumnName="fldProjectDefault" />
+                <ScalarProperty Name="fldImageSize" ColumnName="fldImageSize" />
+                <ScalarProperty Name="fldImage" ColumnName="fldImage" />
+                <ScalarProperty Name="fldImageName" ColumnName="fldImageName" />
+                <ScalarProperty Name="fldProjectID" ColumnName="fldProjectID" />
+                <ScalarProperty Name="fldImageID" ColumnName="fldImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="eclCatoCMModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="fldSourceID" ColumnName="fldSourceID" />
+                <ScalarProperty Name="fldPermissionRef" ColumnName="fldPermissionRef" />
+                <ScalarProperty Name="fldUserStatus" ColumnName="fldUserStatus" />
+                <ScalarProperty Name="fldUserPassword" ColumnName="fldUserPassword" />
+                <ScalarProperty Name="fldUserName" ColumnName="fldUserName" />
+                <ScalarProperty Name="fldUser" ColumnName="fldUser" />
+                <ScalarProperty Name="fldUserID" ColumnName="fldUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

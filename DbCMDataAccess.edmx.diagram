@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28af75ffb5814c78b284fc7021c5a50d" Name="Diagram1">
+        <EntityTypeShape EntityType="eclCatoCMModel.dtproperty" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMColumnOrderDetail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMGroupPackageGridHeader" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMGroupsFormOptionalHeader" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMPackagesFormOptionalHeader" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMProject" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSChangeDetail" Width="1.5" PointX="6.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSChangeIndex" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSChangeStatu" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSChangeType" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSContractReportingPeriod" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSContract" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSDiscipline" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSGroupPackage" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSGroup" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSPackage" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSProjectReportExclusion" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSProject" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSReportPeriod" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSTrafficLight" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSUserDefineField" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSValuationGroup" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCMSValuation" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblPhraseCommentaryData" Width="1.5" PointX="14.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblReportGeneric" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblXEvent" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblCatoCMProject" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblProject" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblAddress" Width="1.5" PointX="15.375" PointY="14.75" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblDefaultCMProperty" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblProjectImage" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="eclCatoCMModel.tblUser" Width="1.5" PointX="17.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
